@@ -1,0 +1,11 @@
+---
+interface Props{mode?:'ask'|'investigate'|'verify';}
+const {mode='ask'}=Astro.props;
+---
+<form id="keo-form" data-mode={mode}>
+ <div class="ask-box"><label for="query">{mode==='ask'?'ASK KEO':'THE CLAIM TO CHECK'}</label><textarea id="query" name="query" minlength="5" maxlength="2000" required placeholder={mode==='ask'?'What would you like to understand about Kenya’s election?':'Paste a claim, public URL or the visible text from a screenshot…'}></textarea><div class="composer-foot"><span>Start with a question. Follow the evidence.</span><button class="btn primary" type="submit">{mode==='ask'?'Ask KEO':'Investigate'} <span aria-hidden="true" style="color:inherit">↗</span></button></div></div>
+ <div class="suggestions"><button class="chip" type="button" data-query="When does the Constitution schedule a general election?">Election calendar ↗</button><button class="chip" type="button" data-query="IEBC has changed the date of the 2027 General Election.">Check a date-change claim ↗</button></div>
+ <p id="service-state" class="small muted">Curated evidence is available. Checking live investigation availability…</p>
+ <p id="form-error" class="error" role="alert" hidden></p><ol id="trace" class="trace" aria-live="polite"></ol>
+</form><div id="result" tabindex="-1"></div><noscript><p class="notice">Interactive investigations need JavaScript. You can still browse <a href="/sources/">original sources</a> and <a href="/about/">the methodology</a>.</p></noscript>
+<script>import '../scripts/investigation';</script>

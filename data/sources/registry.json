@@ -1,0 +1,98 @@
+[
+  {
+    "source_id": "kenya-law",
+    "name": "Kenya Law",
+    "url": "https://new.kenyalaw.org/",
+    "category": "primary",
+    "trust_level": "primary",
+    "licence": "Check individual document terms",
+    "redistribution_allowed": null,
+    "API_available": null,
+    "refresh_frequency": "Weekly",
+    "notes": "Primary legal texts; a cached law does not establish the latest administrative notice."
+  },
+  {
+    "source_id": "iebc",
+    "name": "Independent Electoral and Boundaries Commission",
+    "url": "https://www.iebc.or.ke/",
+    "category": "primary",
+    "trust_level": "primary",
+    "licence": "Publisher terms; link only",
+    "redistribution_allowed": false,
+    "API_available": null,
+    "refresh_frequency": "Daily",
+    "notes": "Authoritative election administration notices. Not yet automatically ingested."
+  },
+  {
+    "source_id": "africa-check",
+    "name": "Africa Check",
+    "url": "https://africacheck.org/",
+    "category": "fact_check",
+    "trust_level": "established",
+    "licence": "Publisher terms; link only",
+    "redistribution_allowed": false,
+    "API_available": null,
+    "refresh_frequency": "Weekly",
+    "notes": "Independent fact checks; check article dates and original evidence."
+  },
+  {
+    "source_id": "pesacheck",
+    "name": "PesaCheck",
+    "url": "https://pesacheck.org/",
+    "category": "fact_check",
+    "trust_level": "established",
+    "licence": "Publisher terms; link only",
+    "redistribution_allowed": false,
+    "API_available": null,
+    "refresh_frequency": "Weekly",
+    "notes": "Regional fact checking; not yet automatically ingested."
+  },
+  {
+    "source_id": "openai",
+    "name": "OpenAI threat research",
+    "url": "https://openai.com/global-affairs/",
+    "category": "research",
+    "trust_level": "established",
+    "licence": "Publisher terms; link only",
+    "redistribution_allowed": false,
+    "API_available": null,
+    "refresh_frequency": "Monthly",
+    "notes": "Research context; findings do not automatically transfer to Kenya."
+  },
+  {
+    "source_id": "anthropic",
+    "name": "Anthropic research",
+    "url": "https://www.anthropic.com/research",
+    "category": "research",
+    "trust_level": "established",
+    "licence": "Publisher terms; link only",
+    "redistribution_allowed": false,
+    "API_available": null,
+    "refresh_frequency": "Monthly",
+    "notes": "No September 2026 report has been ingested or assumed to exist."
+  },
+  {
+    "source_id": "meta",
+    "name": "Meta threat reports",
+    "url": "https://transparency.meta.com/metasecurity/",
+    "category": "research",
+    "trust_level": "established",
+    "licence": "Publisher terms; link only",
+    "redistribution_allowed": false,
+    "API_available": null,
+    "refresh_frequency": "Monthly",
+    "notes": "Public threat research; distinguish platform attribution from KEO observation."
+  },
+  {
+    "source_id": "geoboundaries",
+    "name": "geoBoundaries / RCMRD",
+    "url": "https://www.geoboundaries.org/api/current/gbOpen/KEN/ADM1/",
+    "category": "mapping",
+    "trust_level": "context",
+    "licence": "Public Domain (source); geoBoundaries CC BY 4.0 attribution",
+    "redistribution_allowed": true,
+    "API_available": null,
+    "refresh_frequency": "On release",
+    "notes": "2020 county boundaries; reference geometry, not authoritative electoral boundaries."
+  }
+]

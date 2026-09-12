@@ -1,0 +1,1 @@
+Prioritise official documents, primary records, independent fact checks, independent journalism and then research context. Attribute findings to the original publisher. Search results are leads; gaps and unavailable sources must remain explicit.

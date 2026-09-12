@@ -1,0 +1,21 @@
+name = "keo"
+main = "worker/index.ts"
+compatibility_date = "2026-09-12"
+workers_dev = true
+[assets]
+directory = "./dist"
+binding = "ASSETS"
+run_worker_first = ["/api/*"]
+[observability]
+enabled = false
+# Configure AI_GATEWAY_ACCOUNT_ID, AI_GATEWAY_ID and AI_MODEL as variables.
+# Set AI_GATEWAY_TOKEN using wrangler secret put (BYOK or unified billing).
+# Live paid requests require the RATE_LIMITER binding below.
+[[ratelimits]]
+name = "RATE_LIMITER"
+namespace_id = "1001"
+simple = { limit = 6, period = 60 }
+[[rules]]
+type = "Text"
+globs = ["**/*.md"]
+fallthrough = true
