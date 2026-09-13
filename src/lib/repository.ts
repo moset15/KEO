@@ -10,7 +10,7 @@ export function deduplicate(items:Evidence[]):Evidence[]{
 }
 export function rankEvidence(items:Evidence[]):Evidence[]{
  const ranks={primary:0,fact_check:1,secondary:2,media:3,research:4};
- return deduplicate(items).sort((a,b)=>ranks[a.source_type]-ranks[b.source_type]);
+ return deduplicate([...items].sort((a,b)=>ranks[a.source_type]-ranks[b.source_type]));
 }
 export function searchEvidence(query:string):Evidence[]{
  const q=query.toLowerCase();

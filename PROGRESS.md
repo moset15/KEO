@@ -4,6 +4,7 @@ Last session: 2026-09-12
 ## Done
 - Inspected empty upstream and supplied brief; scoped Stage 1 in SPEC.md.
 - Ask vertical slice: mobile composer, NDJSON progress, evidence provenance, curated fallback and structured Cloudflare AI Gateway adapter. Typecheck, 9 tests and static build pass.
+- Ask slice committed as fdabb58. Investigate route and searchable provenance library added; source ranking now selects strongest evidence before deduplication.
 
 ## In progress
 - Next slices: Investigate, screenshot verification, Threat Observatory and map.
