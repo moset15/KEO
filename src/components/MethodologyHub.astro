@@ -1,0 +1,78 @@
+---
+import catalogue from "../../data/documentation.json";
+const groups = [...new Set(catalogue.map((doc) => doc.group))];
+---
+
+<div class="workspace documentation">
+  <header class="page-intro">
+    <div class="eyebrow">PUBLIC DOCUMENTATION</div>
+    <h1>How KEO works.<br />Where we go next.</h1>
+    <p class="lede">
+      Our evidence method, privacy rules, technical decisions and full
+      application roadmap. Open to read, inspect and challenge.
+    </p>
+  </header>
+  <div class="product-stages">
+    <section class="panel">
+      <span class="tag">MVP · KEO Light</span><h2>The ChatGPT Site.</h2><p>
+        A lightweight evidence desk for phones, tablets and computers. Curated
+        investigations, public sources, reference threats and county context,
+        with paid AI disabled by default.
+      </p><a href="/methodology/overview/">Read the project overview →</a>
+    </section>
+    <section class="panel future-stage">
+      <span class="tag">PLANNED · AFTER PRODUCT HUNT</span><h2>
+        The full web application.
+      </h2><p>
+        A shared evidence core with an optional 3D God’s Eye View. The light
+        version, 2D map and list access remain part of the product; 3D is never
+        required.
+      </p><a href="/methodology/roadmap/">Explore the full roadmap →</a>
+    </section>
+  </div>
+  <p class="notice">
+    KEO is not an election authority. Missing evidence is not proof that a claim
+    is false. The 3D workspace, live ingestion and browser OCR are planned, not
+    available today.
+  </p>
+  <nav class="doc-jump-links" aria-label="Documentation sections">
+    {
+      groups.map((group, index) => (
+        <a class="chip" href={"#docs-" + index}>
+          {group}
+        </a>
+      ))
+    }
+  </nav>
+  {
+    groups.map((group, index) => (
+      <section id={"docs-" + index} class="doc-section">
+        <h2>{group}</h2>
+        <div class="doc-grid">
+          {catalogue
+            .filter((doc) => doc.group === group)
+            .map((doc) => (
+              <a href={"/methodology/" + doc.slug + "/"} class="doc-card">
+                <h3>
+                  {doc.title}
+                  <span aria-hidden="true"> ↗</span>
+                </h3>
+                <p>{doc.summary}</p>
+              </a>
+            ))}
+        </div>
+      </section>
+    ))
+  }
+  <section class="panel" id="privacy">
+    <h2>Your questions and images</h2><p>
+      Results may be saved privately for a short period using native storage.
+      Images are never automatically published. Read the full policy for
+      consent, deletion and interrupted-request limits.
+    </p><a href="/methodology/privacy/">Read privacy & retention →</a>
+  </section>
+  <p class="small muted">
+    These pages are built from the same Markdown files as the GitHub repository.
+    Code is MIT licensed; third-party data has separate terms.
+  </p>
+</div>

@@ -1,0 +1,63 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { events, countyNames } from "../lib/events";
+import { evidence } from "../lib/repository";
+---
+
+<Layout title="Kenya intelligence map"
+  ><header class="page-intro">
+    <div class="eyebrow">KENYA / COUNTY CONTEXT</div><h1>
+      A place to start<br />your investigation.
+    </h1><p class="lede">
+      Explore 47 counties and inspect evidence-linked examples. This is a
+      reference map; no real-time incident feed is connected.
+    </p>
+  </header><section class="section">
+    <div class="filters">
+      <label for="county-filter"
+        >Choose a county<select id="county-filter"
+          ><option value="">All counties</option>{
+            countyNames.map((c) => <option value={c}>{c}</option>)
+          }</select
+        ></label
+      ><span class="tag" style="align-self:end">Illustrative records only</span>
+    </div><p id="map-status" class="small muted" role="status">
+      47 counties · county map loads when visible.
+    </p><div
+      id="map-canvas"
+      class="map-canvas"
+      aria-label="Interactive map of Kenya counties"
+    >
+    </div><p class="small muted">
+      2020 county reference geometry · RCMRD via <a
+        href="https://www.geoboundaries.org/api/current/gbOpen/KEN/ADM1/"
+        >geoBoundaries</a
+      >. This is not an authoritative electoral boundary map.
+    </p><h2>Evidence records</h2><ul id="map-records" class="map-records">
+      {
+        events.map((e) => (
+          <li>
+            <details>
+              <p class="small">
+                Status: unverified · Confidence: unknown · Source published:{" "}
+                {e.timestamp}
+              </p>
+              {e.evidenceIds
+                .map((id) => evidence.find((item) => item.id === id))
+                .filter(Boolean)
+                .map((item) => (
+                  <a href={item!.url}>{item!.title} ↗</a>
+                ))}
+            </details>
+          </li>
+        ))
+      }
+    </ul><p class="notice">
+      An empty county does not mean nothing happened there. National research is
+      shown in the <a href="/intelligence/">intelligence library</a> and is not assigned
+      a made-up county location.
+    </p>
+  </section><script>
+    import "../scripts/map";
+  </script></Layout
+>

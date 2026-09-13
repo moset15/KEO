@@ -1,9 +1,10 @@
 name = "keo"
+# Local development configuration only. Production is owned by ChatGPT Sites.
 main = "worker/index.ts"
 compatibility_date = "2026-09-12"
 workers_dev = true
 [assets]
-directory = "./dist"
+directory = "./dist/client"
 binding = "ASSETS"
 run_worker_first = ["/api/*"]
 [observability]
@@ -19,3 +20,11 @@ simple = { limit = 6, period = 60 }
 type = "Text"
 globs = ["**/*.md"]
 fallthrough = true
+[[d1_databases]]
+binding = "DB"
+database_name = "keo-local"
+database_id = "00000000-0000-4000-8000-000000000000"
+migrations_dir = "drizzle"
+[[r2_buckets]]
+binding = "BUCKET"
+bucket_name = "keo-local-images"

@@ -1,5 +1,162 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Composer from '../components/Composer.astro';
+import Layout from "../layouts/Layout.astro";
+import Composer from "../components/Composer.astro";
 ---
-<Layout title="Turn election rumours into evidence"><section class="hero"><div class="hero-grid"><div><div class="eyebrow"><span class="dot"></span> PUBLIC INTEREST. PUBLIC EVIDENCE.</div><h1>Turn election rumours<br/>into <em>evidence.</em></h1><p class="lede">A clearer view of Kenya’s election information. Ask a question, check a claim and see the sources for yourself.</p><Composer/><p class="small muted">Independent research, never voting advice.</p></div><aside class="sample" aria-label="Example investigation"><div class="sample-top"><span>INSIDE AN INVESTIGATION</span><span>01 / EVIDENCE</span></div><div class="sample-card"><span class="tag amber">Insufficient evidence</span><h3>“IEBC has changed the date of the 2027 election.”</h3><p>A screenshot alone cannot establish a date change. Start with the legal record, then check the original notice.</p><div class="sample-source"><span aria-hidden="true">▤</span><span><strong>Constitution of Kenya</strong>Kenya Law · Primary source ↗</span></div></div><p class="sample-note">Illustrative claim · legal context available · no live verdict</p></aside></div></section><div class="trust-strip"><span>Non-partisan by design</span><span>Every assessment needs evidence</span><span>Open-source methodology</span><span>No voter profiling</span></div><section class="section"><div class="section-heading"><div><div class="eyebrow">YOUR RESEARCH DESK</div><h2>Start with what you want to know.</h2></div></div><div class="feature-grid">{[['01','Ask KEO','Make sense of election procedures and the public evidence behind a question.','/ask/','ASK A QUESTION'],['02','Investigate a claim','Follow a claim from its source to an assessment. See what is known and what is missing.','/investigate/','FOLLOW THE EVIDENCE'],['03','Verify a screenshot','Extract a visible claim, then compare it with public sources. Appearance is never proof.','/verify/','CHECK AN IMAGE'],['04','Threat Observatory','Understand 14 information-integrity techniques and the evidence needed to identify them.','/threats/','EXPLORE TECHNIQUES'],['05','Kenya intelligence map','Explore county context and evidence-linked records on a lightweight reference map.','/map/','OPEN THE MAP'],['06','The source library','Inspect original publishers, retrieval dates, usage rights and the limits of our coverage.','/sources/','INSPECT SOURCES']].map(([n,title,desc,url,cta])=><a class="feature" href={url}><span class="feature-num">{n} /</span><h3>{title}</h3><p>{desc}</p><div class="feature-bottom"><span>{cta}</span><span aria-hidden="true">↗</span></div></a>)}</div></section><section class="section"><div class="eyebrow">A CLEARER PATH TO UNDERSTANDING</div><h2>You should always be able to ask “why?”</h2><div class="steps">{[['01','Question','Start with a claim, question or screenshot.'],['02','Investigation','Check relevant official and public sources.'],['03','Public evidence','Inspect original records and their dates.'],['04','Assessment','Understand the finding and its limitations.']].map(([n,t,d])=><div class="step"><small>{n}</small><h3>{t}</h3><p>{d}</p></div>)}</div></section><section class="open-band"><div><div class="eyebrow">BUILT IN THE OPEN</div><h2>A public-interest project.<br/>An inspectable process.</h2><p>KEO monitors the information environment. It does not profile voters, persuade voters, secretly score people or replace official election authorities.</p></div><div><p>Stage 1: evidence navigation, claims and county context.<br/>Next: reviewed ingestion, public APIs and a fuller observatory.</p><div class="actions"><a class="btn" href="https://github.com/moset15/KEO">View source code ↗</a><a class="btn" href="/about/">Our methodology →</a></div></div></section></Layout>
+
+<Layout title="Turn election rumours into evidence"
+  ><section class="hero">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">
+          <span class="dot"></span> PUBLIC INTEREST. PUBLIC EVIDENCE.
+        </div><h1>Turn election rumours<br />into <em>evidence.</em></h1><p
+          class="lede"
+        >
+          A clearer view of Kenya’s election information. Ask a question, check
+          a claim and see the sources for yourself.
+        </p><Composer /><p class="small muted">
+          Independent research, never voting advice.
+        </p>
+      </div><aside class="sample" aria-label="Example investigation">
+        <div class="sample-top">
+          <span>INSIDE AN INVESTIGATION</span><span>01 / EVIDENCE</span>
+        </div><div class="sample-card">
+          <span class="tag amber">Insufficient evidence</span><h3>
+            “IEBC has changed the date of the 2027 election.”
+          </h3><p>
+            A screenshot alone cannot establish a date change. Start with the
+            legal record, then check the original notice.
+          </p><div class="sample-source">
+            <span aria-hidden="true">▤</span><span
+              ><strong>Constitution of Kenya</strong>Kenya Law · Primary source
+              ↗</span
+            >
+          </div>
+        </div><p class="sample-note">
+          Illustrative claim · legal context available · no live verdict
+        </p>
+      </aside>
+    </div>
+  </section><div class="trust-strip">
+    <span>Non-partisan by design</span><span
+      >Every assessment needs evidence</span
+    ><span>Open-source methodology</span><span>No voter profiling</span>
+  </div><section class="section">
+    <div class="section-heading">
+      <div>
+        <div class="eyebrow">YOUR RESEARCH DESK</div><h2>
+          Start with what you want to know.
+        </h2>
+      </div>
+    </div><div class="feature-grid">
+      {
+        [
+          [
+            "01",
+            "Ask KEO",
+            "Make sense of election procedures and the public evidence behind a question.",
+            "/ask/",
+            "ASK A QUESTION",
+          ],
+          [
+            "02",
+            "Investigate a claim",
+            "Follow a claim from its source to an assessment. See what is known and what is missing.",
+            "/investigate/",
+            "FOLLOW THE EVIDENCE",
+          ],
+          [
+            "03",
+            "Verify a screenshot",
+            "Extract a visible claim, then compare it with public sources. Appearance is never proof.",
+            "/verify/",
+            "CHECK AN IMAGE",
+          ],
+          [
+            "04",
+            "Threat Observatory",
+            "Understand 14 information-integrity techniques and the evidence needed to identify them.",
+            "/threats/",
+            "EXPLORE TECHNIQUES",
+          ],
+          [
+            "05",
+            "Kenya intelligence map",
+            "Explore county context and evidence-linked records on a lightweight reference map.",
+            "/map/",
+            "OPEN THE MAP",
+          ],
+          [
+            "06",
+            "The source library",
+            "Inspect original publishers, retrieval dates, usage rights and the limits of our coverage.",
+            "/sources/",
+            "INSPECT SOURCES",
+          ],
+        ].map(([n, title, desc, url, cta]) => (
+          <a class="feature" href={url}>
+            <>
+              <span class="feature-num">{n} /</span>
+              <h3>{title}</h3>
+              <p>{desc}</p>
+              <div class="feature-bottom">
+                <>
+                  <span>{cta}</span>
+                  <span aria-hidden="true">↗</span>
+                </>
+              </div>
+            </>
+          </a>
+        ))
+      }
+    </div>
+  </section><section class="section">
+    <div class="eyebrow">A CLEARER PATH TO UNDERSTANDING</div><h2>
+      You should always be able to ask “why?”
+    </h2><div class="steps">
+      {
+        [
+          ["01", "Question", "Start with a claim, question or screenshot."],
+          [
+            "02",
+            "Investigation",
+            "Check relevant official and public sources.",
+          ],
+          [
+            "03",
+            "Public evidence",
+            "Inspect original records and their dates.",
+          ],
+          ["04", "Assessment", "Understand the finding and its limitations."],
+        ].map(([n, t, d]) => (
+          <div class="step">
+            <>
+              <small>{n}</small>
+              <h3>{t}</h3>
+              <p>{d}</p>
+            </>
+          </div>
+        ))
+      }
+    </div>
+  </section><section class="open-band">
+    <div>
+      <div class="eyebrow">BUILT IN THE OPEN</div><h2>
+        A public-interest project.<br />An inspectable process.
+      </h2><p>
+        KEO monitors the information environment. It does not profile voters,
+        persuade voters, secretly score people or replace official election
+        authorities.
+      </p>
+    </div><div>
+      <p>
+        Stage 1: evidence navigation, claims and county context.<br />Next:
+        reviewed ingestion, public APIs and a fuller observatory.
+      </p><div class="actions">
+        <a class="btn" href="https://github.com/moset15/KEO"
+          >View source code ↗</a
+        ><a class="btn" href="/about/">Our methodology →</a>
+      </div>
+    </div>
+  </section></Layout
+>

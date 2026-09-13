@@ -1,5 +1,27 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Composer from '../components/Composer.astro';
+import Layout from "../layouts/Layout.astro";
+import Composer from "../components/Composer.astro";
 ---
-<Layout title="Investigate a claim"><div class="workspace"><header class="page-intro"><div class="eyebrow">FOLLOW THE EVIDENCE</div><h1>A claim is a starting point.<br/>Not a conclusion.</h1><p class="lede">Paste a statement, public link or copied text. KEO compares available evidence and makes the gaps visible.</p></header><Composer mode="investigate"/><p class="small muted">A URL is a lead for public-source search; KEO does not fetch arbitrary submitted URLs. <a href="/verify/">Have a screenshot? Check an image →</a></p><section class="panel" style="margin-top:32px"><h2>What an assessment means</h2><p class="small muted">Supported and likely supported require evidence. Misleading means important context is missing. Unsupported means the checked evidence does not support the claim. False requires contradictory evidence. Unverified and insufficient evidence never mean false.</p><a class="small" href="/about/">Read the evidence standard →</a></section></div></Layout>
+
+<Layout title="Investigate a claim"
+  ><div class="workspace">
+    <header class="page-intro">
+      <div class="eyebrow">FOLLOW THE EVIDENCE</div><h1>
+        A claim is a starting point.<br />Not a conclusion.
+      </h1><p class="lede">
+        Paste a statement, public link or copied text. KEO compares available
+        evidence and makes the gaps visible.
+      </p>
+    </header><Composer mode="investigate" /><p class="small muted">
+      A URL is a lead for public-source search; KEO does not fetch arbitrary
+      submitted URLs. <a href="/verify/">Have a screenshot? Check an image →</a>
+    </p><section class="panel" style="margin-top:32px">
+      <h2>What an assessment means</h2><p class="small muted">
+        Supported and likely supported require evidence. Misleading means
+        important context is missing. Unsupported means the checked evidence
+        does not support the claim. False requires contradictory evidence.
+        Unverified and insufficient evidence never mean false.
+      </p><a class="small" href="/about/">Read the evidence standard →</a>
+    </section>
+  </div></Layout
+>

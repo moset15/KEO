@@ -1,0 +1,52 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import raw from "../../../data/threats/taxonomy.json";
+import { ThreatTechniqueSchema, type ThreatTechnique } from "../../lib/schemas";
+import { getSource } from "../../lib/repository";
+export function getStaticPaths() {
+  return raw.map((t) => ({
+    params: { id: t.id.toLowerCase() },
+    props: { technique: t },
+  }));
+}
+const t: ThreatTechnique = ThreatTechniqueSchema.parse(Astro.props.technique);
+---
+
+<Layout title={t.id + " · " + t.name} description={t.description}
+  ><article class="workspace prose">
+    <header class="page-intro">
+      <a href="/threats/" class="small">← All techniques</a><div
+        class="eyebrow"
+        style="margin-top:30px"
+      >
+        {t.id} / {t.status}
+      </div><h1>{t.name}</h1><p class="lede">{t.description}</p>
+    </header><h2>Observable signals</h2><ul>
+      {t.signals.map((s) => <li>{s}</li>)}
+    </ul><h2>Hypothetical example</h2>{t.examples.map((e) => <p>{e}</p>)}<h2>
+      Evidence threshold
+    </h2><p>{t.threshold}</p><h2>Kenya relevance</h2><p>
+      {t.kenyaRelevance}
+    </p><h2>Sources to consult</h2><p>
+      These publisher directories are research starting points. Their inclusion
+      does not mean they document this technique in Kenya.
+    </p><ul>
+      {
+        t.reportSourceIds
+          .map((id) => getSource(id))
+          .filter(Boolean)
+          .map((s) => (
+            <li>
+              <a href={s!.url}>{s!.name} ↗</a>
+            </li>
+          ))
+      }
+    </ul><p class="notice">
+      Observation is not attribution. Do not identify a person, organisation or
+      government from a matching pattern alone.
+    </p><div class="actions">
+      <a class="btn primary" href="/investigate/">Investigate a related claim</a
+      ><a class="btn" href="/map/">Explore county context</a>
+    </div>
+  </article></Layout
+>

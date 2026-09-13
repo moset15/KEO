@@ -13,5 +13,20 @@
     "notes": "Legal background, not confirmation of a current IEBC notice. Recheck amendments and authoritative announcements before assessing a specific date-change claim.",
     "excerpt": "Article 101 sets the regular parliamentary election on the second Tuesday in August in every fifth year.",
     "independence_key": "constitution-2010"
+  },
+  {
+    "id": "keo-e-anthropic-2026-09-kenya",
+    "source_id": "anthropic",
+    "publisher": "Anthropic",
+    "title": "September 2026 threat report — Kenya case GTG-54004",
+    "url": "https://www.anthropic.com/threat-intelligence-report-september-2026",
+    "published_at": "2026-09-10",
+    "retrieved_at": "2026-09-13T05:35:00Z",
+    "source_type": "research",
+    "archive_url": null,
+    "hash": null,
+    "notes": "Anthropic’s findings, not independently verified by KEO. The report found no evidence of government involvement and did not identify the exact responsible organisation. No county or precise incident date is established.",
+    "excerpt": "Anthropic reports disrupting an account that generated Kenyan political posts in batches designed to resemble spontaneous grassroots commentary. It assessed the operation as domestic political astroturfing with Category One reach, limited to its own network on one platform.",
+    "independence_key": "anthropic-gtg-54004"
   }
 ]

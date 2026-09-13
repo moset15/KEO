@@ -1,0 +1,52 @@
+---
+import type { MarkdownInstance } from "astro";
+import Layout from "../../layouts/Layout.astro";
+import catalogue from "../../../data/documentation.json";
+export function getStaticPaths() {
+  return catalogue.map((doc) => ({
+    params: { slug: doc.slug },
+    props: { doc },
+  }));
+}
+const { doc } = Astro.props;
+const modules = import.meta.glob<MarkdownInstance<Record<string, unknown>>>(
+  [
+    "../../../README.md",
+    "../../../SPEC.md",
+    "../../../PROGRESS.md",
+    "../../../REVIEW.md",
+    "../../../CONTRIBUTING.md",
+    "../../../SECURITY.md",
+    "../../../CODE_OF_CONDUCT.md",
+    "../../../docs/*.md",
+    "../../../methodology/*.md",
+    "../../../data-sources/*.md",
+  ],
+  { eager: true },
+);
+const source = modules["../../../" + doc.path];
+if (!source) throw new Error("Missing public documentation: " + doc.path);
+const Content = source.Content;
+---
+
+<Layout title={doc.title} description={doc.summary}>
+  <div class="workspace doc-reading">
+    <nav class="doc-breadcrumb" aria-label="Breadcrumb">
+      <a href="/methodology/">← All documentation</a><span>{doc.group}</span>
+    </nav>
+    <header class="page-intro">
+      <div class="eyebrow">KEO DOCUMENTATION</div><h1>{doc.title}</h1><p
+        class="lede"
+      >
+        {doc.summary}
+      </p>
+    </header>
+    <article class="prose document-body"><Content /></article>
+    <div class="actions">
+      <a class="btn" href="/methodology/">Back to documentation</a><a
+        class="btn"
+        href={"https://github.com/moset15/KEO/blob/feat/product-hunt-mvp/" +
+          doc.path}>Read this file on GitHub ↗</a>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,77 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import raw from "../../../data/threats/taxonomy.json";
+import { ThreatTechniqueSchema } from "../../lib/schemas";
+const threats = raw.map((t) => ThreatTechniqueSchema.parse(t));
+---
+
+<Layout title="Threat Observatory"
+  ><header class="page-intro">
+    <div class="eyebrow">INFORMATION INTEGRITY / REFERENCE LIBRARY</div><h1>
+      Recognise the technique.<br />Demand the evidence.
+    </h1><p class="lede">
+      Fourteen ways election information can be manipulated, and what it takes
+      to establish each one. A matching signal alone does not identify an actor.
+    </p>
+  </header><div class="trust-strip">
+    <span>Observation: what is visible</span><span
+      >Assessment: what evidence suggests</span
+    ><span>Attribution: a higher threshold</span>
+  </div><section class="section">
+    <label for="threat-search" class="small">Find a technique</label><input
+      type="search"
+      id="threat-search"
+      class="search-field"
+      placeholder="Try impersonation, polling or synthetic media"
+    /><p id="threat-empty" class="empty" hidden>
+      No techniques match. Try a broader term.
+    </p><div class="grid">
+      {
+        threats.map((t) => (
+          <a
+            class="feature"
+            href={"/threats/" + t.id.toLowerCase() + "/"}
+            data-threat={(
+              t.id +
+              " " +
+              t.name +
+              " " +
+              t.description
+            ).toLowerCase()}
+          >
+            <>
+              <div class="feature-num">{t.id} / REFERENCE TECHNIQUE</div>
+              <h2>{t.name}</h2>
+              <p>{t.description}</p>
+              <div class="feature-bottom">
+                <>
+                  <span>Signals & evidence threshold</span>
+                  <span>↗</span>
+                </>
+              </div>
+            </>
+          </a>
+        ))
+      }
+    </div>
+  </section><p class="notice">
+    This taxonomy is a research reference, not a list of active operations in
+    Kenya. <a href="/intelligence/"
+      >Read the attributed research in our evidence library.</a
+    >
+  </p><script>
+    const field = document.querySelector<HTMLInputElement>("#threat-search");
+    field?.addEventListener("input", () => {
+      let count = 0;
+      document
+        .querySelectorAll<HTMLElement>("[data-threat]")
+        .forEach((card) => {
+          card.hidden = !card.dataset.threat?.includes(
+            field.value.toLowerCase().trim(),
+          );
+          if (!card.hidden) count++;
+        });
+      document.querySelector<HTMLElement>("#threat-empty")!.hidden = count > 0;
+    });
+  </script></Layout
+>

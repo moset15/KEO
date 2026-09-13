@@ -1,0 +1,5 @@
+node_modules
+dist
+.wrangler
+public/data/counties.geojson
+package-lock.json

@@ -1,0 +1,149 @@
+[
+  {
+    "slug": "overview",
+    "title": "Project overview",
+    "path": "README.md",
+    "group": "Start here",
+    "summary": "The lightweight Site, final product direction and local setup."
+  },
+  {
+    "slug": "roadmap",
+    "title": "Roadmap & God’s Eye View",
+    "path": "docs/roadmap.md",
+    "group": "Start here",
+    "summary": "Phased development, 3D scope and release gates."
+  },
+  {
+    "slug": "architecture",
+    "title": "Architecture & deployment",
+    "path": "docs/architecture.md",
+    "group": "Build & operate",
+    "summary": "Native Sites hosting, storage, providers and dependency decisions."
+  },
+  {
+    "slug": "ai-budget",
+    "title": "AI & zero-budget policy",
+    "path": "docs/ai-budget.md",
+    "group": "Start here",
+    "summary": "What needs no paid AI and how optional models will be evaluated."
+  },
+  {
+    "slug": "device-support",
+    "title": "Device support & accessibility",
+    "path": "docs/device-support.md",
+    "group": "Build & operate",
+    "summary": "Mobile baseline, low-data access and 3D fallbacks."
+  },
+  {
+    "slug": "evidence",
+    "title": "Evidence method",
+    "path": "methodology/evidence.md",
+    "group": "Evidence & safeguards",
+    "summary": "Source selection, independence, timestamps and validation."
+  },
+  {
+    "slug": "confidence",
+    "title": "Status & confidence",
+    "path": "methodology/confidence.md",
+    "group": "Evidence & safeguards",
+    "summary": "What assessments mean and how uncertainty is communicated."
+  },
+  {
+    "slug": "attribution",
+    "title": "Attribution policy",
+    "path": "methodology/attribution.md",
+    "group": "Evidence & safeguards",
+    "summary": "Separate observations, assessments and responsibility."
+  },
+  {
+    "slug": "privacy",
+    "title": "Privacy & retention",
+    "path": "methodology/privacy.md",
+    "group": "Evidence & safeguards",
+    "summary": "What is processed, saved, deleted or never published."
+  },
+  {
+    "slug": "threat-taxonomy",
+    "title": "Threat taxonomy",
+    "path": "methodology/threat-taxonomy.md",
+    "group": "Evidence & safeguards",
+    "summary": "Fourteen reference techniques and their limits."
+  },
+  {
+    "slug": "data-sources",
+    "title": "Source & data licences",
+    "path": "data-sources/README.md",
+    "group": "Data documentation",
+    "summary": "Rights, redistribution and public-source provenance."
+  },
+  {
+    "slug": "map-data",
+    "title": "County map provenance",
+    "path": "docs/map-data.md",
+    "group": "Data documentation",
+    "summary": "Boundary source, geographic precision and illustrative records."
+  },
+  {
+    "slug": "threat-content",
+    "title": "Threat content notes",
+    "path": "docs/threat-content-notes.md",
+    "group": "Data documentation",
+    "summary": "Editorial choices and reference-versus-incident distinctions."
+  },
+  {
+    "slug": "implementation",
+    "title": "Implementation plan",
+    "path": "docs/implementation-plan.md",
+    "group": "Build & operate",
+    "summary": "Working vertical slices and repository structure."
+  },
+  {
+    "slug": "product-hunt",
+    "title": "Demo & launch checklist",
+    "path": "docs/product-hunt.md",
+    "group": "Build & operate",
+    "summary": "A two-minute demo and checks before public launch."
+  },
+  {
+    "slug": "specification",
+    "title": "MVP specification",
+    "path": "SPEC.md",
+    "group": "Build & operate",
+    "summary": "Scope, exclusions and acceptance criteria."
+  },
+  {
+    "slug": "progress",
+    "title": "Development progress",
+    "path": "PROGRESS.md",
+    "group": "Build & operate",
+    "summary": "Recorded implementation and validation status."
+  },
+  {
+    "slug": "review",
+    "title": "Release review",
+    "path": "REVIEW.md",
+    "group": "Build & operate",
+    "summary": "Evidence from the quality and security gate."
+  },
+  {
+    "slug": "contributing",
+    "title": "Contributing & corrections",
+    "path": "CONTRIBUTING.md",
+    "group": "Community & governance",
+    "summary": "How to improve KEO and propose evidence corrections."
+  },
+  {
+    "slug": "security",
+    "title": "Security reporting",
+    "path": "SECURITY.md",
+    "group": "Community & governance",
+    "summary": "Responsible reporting without exposing private data."
+  },
+  {
+    "slug": "conduct",
+    "title": "Code of conduct",
+    "path": "CODE_OF_CONDUCT.md",
+    "group": "Community & governance",
+    "summary": "Standards for respectful, non-partisan collaboration."
+  }
+]

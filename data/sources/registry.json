@@ -69,7 +69,7 @@
     "redistribution_allowed": false,
     "API_available": null,
     "refresh_frequency": "Monthly",
-    "notes": "No September 2026 report has been ingested or assumed to exist."
+    "notes": "The September 2026 Kenya case is summarised with attribution in the curated evidence library. Other reports are not automatically ingested."
   },
   {
     "source_id": "meta",

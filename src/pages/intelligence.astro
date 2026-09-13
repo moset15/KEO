@@ -1,0 +1,39 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { evidence } from "../lib/repository";
+const records = [...evidence].sort((a, b) =>
+  (b.published_at ?? "").localeCompare(a.published_at ?? ""),
+);
+---
+
+<Layout title="Latest in the evidence library"
+  ><div class="workspace">
+    <header class="page-intro">
+      <div class="eyebrow">CURATED PUBLIC RESEARCH</div><h1>
+        Latest in the library.
+      </h1><p class="lede">
+        Selected records with original sources. Publication dates describe the
+        source, not when KEO observed an incident.
+      </p>
+    </header>{
+      records.map((e) => (
+        <article class="panel" style="margin:20px 0">
+          <>
+            <span class="eyebrow">
+              {e.publisher} · {e.published_at ?? "Publication date unknown"}
+            </span>
+            <h2>{e.title}</h2>
+            <p>{e.excerpt}</p>
+            <p class="notice">{e.notes}</p>
+            <a class="btn" href={e.url}>
+              Read original evidence ↗
+            </a>
+          </>
+        </article>
+      ))
+    }<p class="small muted">
+      Coverage is limited to the listed records. There is no automatic ingestion
+      or live news feed in this MVP.
+    </p>
+  </div></Layout
+>

@@ -1,0 +1,56 @@
+[
+  {
+    "id": "keo-demo-nairobi-context",
+    "title": "National election-calendar context — Nairobi demo pin",
+    "category": "Election administration",
+    "location": {
+      "id": "keo-loc-nairobi-demo",
+      "name": "Nairobi demo anchor",
+      "county": "Nairobi",
+      "lat": -1.2864,
+      "lon": 36.8172
+    },
+    "timestamp": "2010-08-27",
+    "status": "unverified",
+    "confidence": "unknown",
+    "evidenceIds": ["keo-e-constitution-101"],
+    "description": "Illustrative record only. Article 101 provides national constitutional context about the regular parliamentary election calendar. The Nairobi coordinate demonstrates map navigation; it is not a location-specific report, current notice or incident. The date is the source publication date, not an event date.",
+    "isDemo": true
+  },
+  {
+    "id": "keo-demo-mombasa-context",
+    "title": "National election-calendar context — Mombasa demo pin",
+    "category": "Election administration",
+    "location": {
+      "id": "keo-loc-mombasa-demo",
+      "name": "Mombasa demo anchor",
+      "county": "Mombasa",
+      "lat": -4.0435,
+      "lon": 39.6682
+    },
+    "timestamp": "2010-08-27",
+    "status": "unverified",
+    "confidence": "unknown",
+    "evidenceIds": ["keo-e-constitution-101"],
+    "description": "Illustrative record only. Article 101 is national legal background, anchored in Mombasa solely to demonstrate county filtering. It provides no evidence of a local incident or a new election announcement. The date is the source publication date, not an event date.",
+    "isDemo": true
+  },
+  {
+    "id": "keo-demo-kisumu-context",
+    "title": "National election-calendar context — Kisumu demo pin",
+    "category": "Election administration",
+    "location": {
+      "id": "keo-loc-kisumu-demo",
+      "name": "Kisumu demo anchor",
+      "county": "Kisumu",
+      "lat": -0.0917,
+      "lon": 34.768
+    },
+    "timestamp": "2010-08-27",
+    "status": "unverified",
+    "confidence": "unknown",
+    "evidenceIds": ["keo-e-constitution-101"],
+    "description": "Illustrative record only. This Kisumu point demonstrates an evidence-linked map record using national constitutional context. No county-specific observation has been collected or assessed. The date is the source publication date, not an event date.",
+    "isDemo": true
+  }
+]

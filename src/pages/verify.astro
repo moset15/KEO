@@ -1,0 +1,79 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Verify a screenshot"
+  ><div class="workspace">
+    <header class="page-intro">
+      <div class="eyebrow">LOOK BEYOND THE IMAGE</div><h1>
+        A convincing screenshot<br />still needs evidence.
+      </h1><p class="lede">
+        Select an election notice, headline or political graphic. Cover private
+        details, then check the claim against public sources.
+      </p>
+    </header><p class="notice">
+      Paid AI is disabled by default. You can preview and cover private details
+      here, then <a href="/investigate/"
+        >type or paste the visible claim into Investigate</a
+      >. Automatic on-device text extraction is planned, not yet available.
+    </p><form id="keo-form" data-mode="verify">
+      <label class="upload" for="image-file"
+        ><strong>Choose a screenshot or photograph</strong><br /><span
+          class="small muted"
+          >JPEG, PNG or WebP · up to 8 MB before compression</span
+        ><input
+          id="image-file"
+          type="file"
+          accept="image/jpeg,image/png,image/webp"
+          required
+        /></label
+      ><div id="image-editor" hidden>
+        <p class="small">
+          Drag across names, phone numbers and profile pictures to cover them
+          before sending.
+        </p><canvas
+          id="image-canvas"
+          class="upload-preview"
+          aria-label="Image redaction canvas"></canvas><button
+          class="btn"
+          id="reset-image"
+          type="button">Undo all redactions</button
+        ><button class="btn" id="clear-image" type="button">Remove image</button
+        >
+      </div><label for="query" class="small">Optional context</label><textarea
+        id="query"
+        maxlength="2000"
+        placeholder="What makes this image suspicious?"></textarea><label
+        class="consent"
+        ><input id="image-consent" type="checkbox" required /><span
+          >I have covered unnecessary personal details and agree to send this
+          image for AI analysis. KEO removes the temporary image after
+          processing. <a href="/about/#privacy">Retention details</a>.</span
+        ></label
+      ><div class="actions">
+        <button class="btn primary" type="submit"
+          >Extract & investigate ↗</button
+        ><a class="btn" href="/investigate/">Paste text instead</a>
+      </div><p id="service-state" class="small muted">
+        Checking image verification availability…
+      </p><p id="form-error" class="error" role="alert" hidden></p><ol
+        id="trace"
+        class="trace"
+        aria-live="polite"
+      >
+      </ol>
+    </form><div id="result" tabindex="-1"></div><p class="notice">
+      An image’s appearance cannot prove authenticity or AI generation. KEO
+      checks its visible claim; it does not identify private people.
+    </p><noscript
+      ><p>
+        Image verification needs JavaScript. <a href="/sources/"
+          >Open original sources</a
+        >.
+      </p></noscript
+    >
+  </div><script>
+    import "../scripts/image-editor";
+    import "../scripts/investigation";
+  </script></Layout
+>

@@ -1,0 +1,240 @@
+[
+  {
+    "id": "T01",
+    "name": "Fake grassroots personas",
+    "description": "Accounts or pages present a fabricated identity as an ordinary resident or independent local voice. Pseudonymity, a new account or an unpopular opinion alone does not establish a deceptive persona.",
+    "signals": [
+      "A profile's claimed identity conflicts with a traceable original photograph, biography or public statement.",
+      "Several public profiles reuse the same unusual biography or portrait while claiming different identities.",
+      "A claimed local affiliation is contradicted by a first-hand public record; language or posting hours alone are not reliable identity evidence."
+    ],
+    "examples": [
+      "Hypothetical example — a page claims to represent an independent neighbourhood group, but its portrait and biography are copied from an unrelated person's published profile. This illustrates an identity discrepancy, not proof of who operates the page."
+    ],
+    "threshold": "Observation: preserve the public identity claim, original source and dates. Assessment: require independently checkable contradictions supporting fabrication; distinguish parody, consented reuse and pseudonyms. Attribution: require additional authenticated evidence connecting control to a named operator, such as a documented platform finding. Do not identify private people through speculative matching.",
+    "reportSourceIds": ["meta", "openai"],
+    "kenyaRelevance": "Useful for examining claims of local grassroots representation in Kenya. This reference entry contains no finding that such a network is operating in Kenya and does not infer residence, ethnicity or political affiliation from an account.",
+    "status": "Reference technique"
+  },
+  {
+    "id": "T02",
+    "name": "Coordinated amplification",
+    "description": "Multiple public channels act together to increase a message's apparent reach or support. Shared views, popular hashtags and simultaneous reactions to news can occur without deceptive coordination.",
+    "signals": [
+      "Public posts repeat a distinctive text, error or unusual URL sequence within a narrow time window across several occasions.",
+      "The same small set of public pages repeatedly republishes one another's material in a consistent sequence.",
+      "Published platform research or authenticated public instructions identify organised distribution that was presented as independent activity."
+    ],
+    "examples": [
+      "Hypothetical example — several apparently independent pages publish the same unusual paragraph and misspelled link in the same order on multiple days. The pattern warrants checking common scheduling or syndicated content before assessing deceptive coordination."
+    ],
+    "threshold": "Observation: record reproducible public timing, content and URL patterns, including collection limitations. Assessment: require repeated behaviour plus corroborating evidence of a relationship; consider ordinary syndication, shared tools and a common news trigger. Attribution: a pattern alone cannot identify an organiser, funder or automated account; require direct authenticated links or a well-supported public investigation.",
+    "reportSourceIds": ["meta", "openai", "anthropic"],
+    "kenyaRelevance": "Can help assess public election-message distribution in Kenya at an aggregate level. No Kenyan campaign, party or network is identified by this reference entry, and message volume does not establish public support.",
+    "status": "Reference technique"
+  },
+  {
+    "id": "T03",
+    "name": "Fake news websites",
+    "description": "A website misrepresents its identity, reporting process or independence to give fabricated material the appearance of journalism. An unfamiliar publisher or a single reporting error is insufficient to classify a site this way.",
+    "signals": [
+      "A site's masthead, journalist biographies or publisher identity are copied from another outlet or contradicted by original public records.",
+      "A page imitates an established outlet's branding while using a different domain and obscuring that difference.",
+      "Articles cite nonexistent interviews or documents, or reproduce a disputed claim through circular links with no identifiable original reporting."
+    ],
+    "examples": [
+      "Hypothetical example — a site resembles a recognised newspaper and publishes an alleged election announcement, but the newspaper's own site has no such article and publicly disclaims the lookalike domain. The article still requires a separate factual check."
+    ],
+    "threshold": "Observation: retain the exact URL, dated page and claimed publisher identity. Assessment: verify material identity deception or fabrication through original publisher records and independent checks; distinguish satire, small new outlets and corrections. Attribution: domain similarity, a shared host or a registration date cannot establish the operator; require authenticated ownership or control evidence.",
+    "reportSourceIds": ["meta", "africa-check", "pesacheck"],
+    "kenyaRelevance": "Relevant when readers encounter unfamiliar sites carrying Kenyan election news. This entry provides a verification approach, not a list of suspect Kenyan outlets or evidence of a current operation.",
+    "status": "Reference technique"
+  },
+  {
+    "id": "T04",
+    "name": "Impersonation of public institutions",
+    "description": "An account, message or website claims to speak for a public institution without authorisation. It concerns the identity of the messenger; whether its individual statements are accurate requires a separate check.",
+    "signals": [
+      "The sender's handle, domain or contact details differ from channels linked by the institution's verified official website.",
+      "A page uses institutional branding but cannot show a traceable relationship to the institution.",
+      "The institution publishes an authenticated clarification identifying the exact account, domain or message as unauthorised."
+    ],
+    "examples": [
+      "Hypothetical example — an account using an election body's logo announces a registration change, but the account is not linked from the body's official site. This mismatch triggers a check with the institution; absence from one directory alone does not prove impersonation."
+    ],
+    "threshold": "Observation: capture the precise identity claim and compare the exact handle or domain with authoritative channels. Assessment: seek an authenticated denial or other direct evidence that the claimed institutional relationship is false; account verification badges alone are insufficient. Attribution: do not infer the operator from the copied logo or message; require separate reliable control evidence.",
+    "reportSourceIds": ["iebc", "africa-check", "pesacheck"],
+    "kenyaRelevance": "Provides a way to check messages purporting to come from IEBC or another Kenyan public body. KEO is not an official notice channel and this entry does not identify any current impersonator.",
+    "status": "Reference technique"
+  },
+  {
+    "id": "T05",
+    "name": "Forged official documents",
+    "description": "A document is fabricated or materially altered while being presented as an authentic official record. An unusual layout, low-resolution scan or missing online copy does not alone establish forgery.",
+    "signals": [
+      "The alleged notice differs materially from a dated original obtained through the issuing body's official publication channel.",
+      "A document reference, signature context or quoted decision conflicts with the corresponding primary record.",
+      "The issuing institution provides an authenticated clarification addressing the specific document and disputed wording."
+    ],
+    "examples": [
+      "Hypothetical example — a circulated image of an official notice changes one date compared with the issuing body's original PDF. The comparison supports describing that alteration; it does not establish who edited or first shared the image."
+    ],
+    "threshold": "Observation: compare the supplied document with the original version, retaining publication dates and the exact differences. Assessment: require a verified original, issuer confirmation or competent document examination supporting a material unauthorised alteration. If no original is available, leave authenticity unverified. Attribution: editing artefacts and forwarded copies cannot identify the forger; require an authenticated evidence trail.",
+    "reportSourceIds": ["iebc", "kenya-law", "africa-check", "pesacheck"],
+    "kenyaRelevance": "Relevant to checking purported Kenyan election notices and legal documents against their issuers. This reference entry asserts no document is forged and does not use cached legal context to verify a new notice.",
+    "status": "Reference technique"
+  },
+  {
+    "id": "T06",
+    "name": "Synthetic political media",
+    "description": "Generated or substantially synthesised audio, images or video are presented in a way that may mislead viewers about a political event or statement. Clearly labelled illustration, satire and accessibility adaptations need context rather than an automatic deception label.",
+    "signals": [
+      "An alleged recording materially differs from an authenticated full recording of the same speech or event.",
+      "Verifiable provenance records or an authenticated creator disclosure identify generation or synthesis of the specific media.",
+      "Independent technical examination finds relevant alterations, with its method and limitations disclosed; visual oddities alone remain inconclusive."
+    ],
+    "examples": [
+      "Hypothetical example — a short clip appears to contain a new political endorsement, while a complete authenticated recording contains different words and the clip's verified creator discloses voice synthesis. These sources support assessing the clip, not speculating about the speaker's motives."
+    ],
+    "threshold": "Observation: describe only visible or audible content and compare original material where available. Assessment: require credible provenance, a verified disclosure or suitably corroborated expert examination before calling media synthetic; generic AI-detector scores are not proof. Verify the political claim independently. Attribution: require separate authenticated evidence linking creation or distribution to an operator.",
+    "reportSourceIds": ["openai", "anthropic", "africa-check", "pesacheck"],
+    "kenyaRelevance": "A reference for checking political recordings and images encountered in Kenya. It does not establish the presence, scale or source of synthetic media in any Kenyan election, and appearance alone cannot identify AI generation.",
+    "status": "Reference technique"
+  },
+  {
+    "id": "T07",
+    "name": "Recycled or context-manipulated media",
+    "description": "Authentic media is relabelled, selectively cropped or edited to imply a different date, place, speaker or event. The underlying photograph or recording can be real while the accompanying claim is misleading.",
+    "signals": [
+      "An earlier traceable publication shows the same media with a different documented date or location.",
+      "The full recording contains context omitted from the circulated excerpt that changes the apparent meaning.",
+      "Public landmarks, weather or event details conflict with the supplied caption, with independent location or date evidence available."
+    ],
+    "examples": [
+      "Hypothetical example — a photograph captioned as an election-day queue is also present in an earlier documented article about a different event. The earlier publication can establish prior existence; checking that article's location and context is still necessary."
+    ],
+    "threshold": "Observation: preserve the circulated caption and locate a traceable earlier or fuller version. Assessment: corroborate the original date, place or meaning using primary material or independent reporting; a search engine's indexing date alone is insufficient. State the precise context mismatch. Attribution: the mismatch does not reveal who knowingly changed the caption or why.",
+    "reportSourceIds": ["africa-check", "pesacheck"],
+    "kenyaRelevance": "Useful for checking photos and clips claimed to depict Kenyan election events. It does not assert that any county has experienced the event shown, and it must not be used to locate or identify private individuals.",
+    "status": "Reference technique"
+  },
+  {
+    "id": "T08",
+    "name": "False election procedure information",
+    "description": "A claim materially misstates an applicable election procedure, such as registration requirements, polling arrangements or how an official process works. A draft proposal, superseded rule or local exception must be distinguished from the current applicable instruction.",
+    "signals": [
+      "A message's procedural instruction conflicts with a dated, applicable primary notice or legal text.",
+      "An old notice is circulated as current, or a rule for one process or place is presented as applying everywhere.",
+      "A procedural claim offers no identifiable issuer, publication date or reference that readers can check."
+    ],
+    "examples": [
+      "Hypothetical example — a forwarded message says a polling requirement has changed, but the cited document concerns a different election process. The scope mismatch must be checked against the current official instruction before issuing an assessment."
+    ],
+    "threshold": "Observation: extract the exact instruction, claimed date, affected place and cited authority. Assessment: require current applicable primary evidence and check for amendments, court decisions or local exceptions before describing a contradiction. If current records cannot be obtained, mark the claim unverified. Attribution: an incorrect instruction does not establish deliberate deception or identify its originator.",
+    "reportSourceIds": ["iebc", "kenya-law", "africa-check", "pesacheck"],
+    "kenyaRelevance": "Directs checks of Kenyan election procedures towards current IEBC notices and applicable primary records. This taxonomy supplies no current voting instructions and should never substitute for official guidance.",
+    "status": "Reference technique"
+  },
+  {
+    "id": "T09",
+    "name": "Voter suppression narratives",
+    "description": "False claims, impersonated instructions or intimidation may discourage lawful participation in an election. Criticism of elections, expressions of distrust and lawful advocacy for abstention do not alone establish deceptive suppression.",
+    "signals": [
+      "A participation-related message contains a concrete factual claim contradicted by applicable current official evidence.",
+      "A message falsely claims official authority to deter lawful participation or threatens a consequence without traceable supporting evidence.",
+      "Independent public evidence documents how the misleading message was distributed; claims of reach or impact remain separate from the message itself."
+    ],
+    "examples": [
+      "Hypothetical example — a message falsely presents itself as an official instruction that eligible residents must stay away from a polling process. An authenticated clarification can support correcting the instruction, but does not by itself show how many people saw it or changed their behaviour."
+    ],
+    "threshold": "Observation: document the exact participation claim without repeating identifying details or amplifying threats unnecessarily. Assessment: establish the factual deception or intimidation through primary evidence and distinguish potential deterrence from measured impact. Attribution: deliberate suppression, a sponsor and effects on participation each require additional direct evidence; do not infer them from political viewpoint.",
+    "reportSourceIds": ["iebc", "kenya-law", "africa-check", "pesacheck"],
+    "kenyaRelevance": "Supports neutral correction of potentially misleading participation claims encountered in Kenya. It does not identify vulnerable voter groups, infer group voting behaviour or assert that suppression is occurring in a particular community.",
+    "status": "Reference technique"
+  },
+  {
+    "id": "T10",
+    "name": "Fabricated endorsements",
+    "description": "Content falsely presents a person or organisation as supporting a candidate, party or political position. A shared photograph, meeting, quotation or attendance at an event is not necessarily an endorsement.",
+    "signals": [
+      "An alleged endorsement is absent from the cited original statement or changes the statement's wording materially.",
+      "An authenticated clarification from the purported endorser denies the exact endorsement claim.",
+      "A graphic combines an authentic portrait or logo with a quotation that cannot be traced to the claimed source."
+    ],
+    "examples": [
+      "Hypothetical example — a graphic attributes a candidate endorsement to a professional association, while the association's full statement expresses no electoral preference and directly disclaims the graphic. That evidence concerns this endorsement claim, not the views of every member."
+    ],
+    "threshold": "Observation: preserve the precise claimed endorsement, date and cited source. Assessment: compare authenticated full statements and seek a direct clarification where possible; absence of a search result is not a disproof. Distinguish a personal statement from an institutional one and check whether positions changed over time. Attribution: copying a portrait or benefiting from the claim does not establish who fabricated it.",
+    "reportSourceIds": ["africa-check", "pesacheck", "meta"],
+    "kenyaRelevance": "Useful for checking public endorsement claims in Kenyan election discussion. The entry makes no claim about any actual endorsement and does not infer private individuals' political preferences.",
+    "status": "Reference technique"
+  },
+  {
+    "id": "T11",
+    "name": "Coordinated harassment",
+    "description": "Organised activity directs repeated abusive messages, threats or invasive exposure towards a target. Robust criticism, public scrutiny and many people independently disagreeing are not sufficient evidence of coordinated harassment.",
+    "signals": [
+      "Public messages repeatedly use the same unusual abusive wording or target reference within a reproducible distribution pattern.",
+      "Authenticated public instructions explicitly organise abusive contact or threats towards a named target.",
+      "A documented investigation establishes links between participating public channels while distinguishing criticism from abusive conduct."
+    ],
+    "examples": [
+      "Hypothetical example — several public pages repeatedly direct identical threatening messages at an election observer after an authenticated public post calls for that conduct. Evidence can be summarised without republishing the observer's contact details or the threats in full."
+    ],
+    "threshold": "Observation: record public conduct and timing while minimising personal information and harmful reproduction. Assessment: require evidence of abusive conduct plus a corroborated organising relationship before using the coordination label; report collection limits. Attribution: shared wording alone cannot identify an organiser, and political association does not establish responsibility. Escalation of an immediate safety concern belongs with appropriate support channels, not public speculation.",
+    "reportSourceIds": ["meta", "openai", "anthropic"],
+    "kenyaRelevance": "Offers a framework for describing public information-environment risks affecting election participants in Kenya. It does not track private people, publish target lists or establish that a named group is responsible for harassment.",
+    "status": "Reference technique"
+  },
+  {
+    "id": "T12",
+    "name": "Undisclosed influence operations",
+    "description": "An organised effort conceals material control, sponsorship or relationships while presenting political communication as independent. Political advocacy and paid advertising are not inherently deceptive; the hidden relationship and misleading presentation must be evidenced.",
+    "signals": [
+      "Authenticated public records establish a shared controller or sponsor that conflicts with channels' claims of independence.",
+      "A platform's published investigation documents concealed relationships and explains the evidence supporting its findings.",
+      "A public disclosure or verified investigation links content commissioning to a sponsor without the relationship being disclosed in the examined material."
+    ],
+    "examples": [
+      "Hypothetical example — pages describe their political coverage as independently produced, while authenticated public contracts establish common paid commissioning. Those records may support an assessment of undisclosed sponsorship within their scope; they do not establish responsibility for every post."
+    ],
+    "threshold": "Observation: document the independence claim and the specific public relationship evidence. Assessment: require corroborated evidence of organised activity, a material concealed relationship and misleading presentation. Attribution: name a controller or sponsor only where authenticated records or a transparent, well-supported investigation substantiate that role; distinguish publisher-reported attribution from KEO's own observations.",
+    "reportSourceIds": ["meta", "openai", "anthropic"],
+    "kenyaRelevance": "A reference for evaluating claims about hidden sponsorship of public political communication in Kenya. It neither establishes a Kenyan operation nor transfers an overseas research finding to Kenya, and language or nationality is not attribution evidence.",
+    "status": "Reference technique"
+  },
+  {
+    "id": "T13",
+    "name": "Fake polling / fabricated survey data",
+    "description": "Content invents a poll, alters its results or falsely attributes survey findings to a research organisation. An openly described informal survey can be unrepresentative without being fabricated.",
+    "signals": [
+      "The claimed polling organisation's authenticated publication gives different figures or explicitly disclaims the circulated survey.",
+      "A graphic cites no traceable fieldwork dates, questionnaire, sample description or commissioning source.",
+      "Published figures differ from the original tables or combine incompatible populations and dates without explanation."
+    ],
+    "examples": [
+      "Hypothetical example — a graphic attributes election-preference percentages to a named survey organisation, but the organisation identifies the graphic as unauthorised and publishes the actual findings. Missing methodology alone would justify caution, not a fabrication finding."
+    ],
+    "threshold": "Observation: extract the pollster, dates, population, wording and figures claimed. Assessment: locate the original report or authenticated pollster response and compare the exact data; separate fabrication, misleading presentation and sampling limitations. Do not convert an unrepresentative sample into a population conclusion. Attribution: a logo or candidate advantage does not identify the creator, commissioner or sponsor.",
+    "reportSourceIds": ["africa-check", "pesacheck"],
+    "kenyaRelevance": "Helps readers assess the provenance and presentation of Kenyan election polling claims. It supplies no polling estimates, ethnic or religious voting profiles, or advice for political targeting.",
+    "status": "Reference technique"
+  },
+  {
+    "id": "T14",
+    "name": "Manipulated election-result claims",
+    "description": "Content alters, fabricates or misrepresents result figures, forms or their official status. A partial tally, transcription mistake, disputed figure or arithmetic inconsistency is not by itself proof of election fraud.",
+    "signals": [
+      "A circulated figure or form differs from the corresponding authenticated publication from the competent election authority.",
+      "A claim presents an incomplete tally, projection or platform extraction as an official final declaration.",
+      "The cited result omits its reporting scope, publication time or revision history, or combines records for different contests."
+    ],
+    "examples": [
+      "Hypothetical example — a social graphic labels a partial collection of result forms as a final official result. Comparing its stated coverage and timestamp with authenticated authority publications can establish that status mismatch without alleging fraud or declaring a winner."
+    ],
+    "threshold": "Observation: retain exact figures, contest, reporting unit, timestamp and claimed official status. Assessment: compare like-for-like authenticated records, account for corrections and distinguish extraction from reviewed transcription and official publication. Describe unresolved arithmetic differences as data-quality issues requiring review. Attribution: errors do not establish intent or identify an operator; KEO never independently declares a winner or automatically alleges fraud.",
+    "reportSourceIds": ["iebc", "kenya-law", "africa-check", "pesacheck"],
+    "kenyaRelevance": "Provides a reference for inspecting the provenance of Kenyan election-result claims when relevant official records exist. It contains no current results, forecast or declaration and does not establish misconduct in an election.",
+    "status": "Reference technique"
+  }
+]
