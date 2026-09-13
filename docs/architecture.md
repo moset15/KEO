@@ -28,7 +28,7 @@ Live search restricts registry domains, labels generated summaries and rejects i
 
 The 14 techniques are reference material. MapLibre and local 47-county geometry load only on the map route; no external basemap or geocoder is used. Records are illustrative and a list remains available without WebGL. The methodology hub renders repository Markdown at build time so GitHub and the Site share the documentation.
 
-The Kenyan flag palette uses written status labels. Static pages require no AI. Image preview/redaction is local; optional remote extraction is consented. Browser OCR is planned, not shipped. See [device support](device-support.md) and [AI policy](ai-budget.md).
+The Kenyan flag palette uses written status labels. Static pages require no AI. Image preview, redaction and Tesseract.js OCR are local and use self-hosted assets. Only reviewed text enters source lookup. The old remote extraction adapter remains disabled and is not used by the public screenshot form. See [device support](device-support.md) and [AI policy](ai-budget.md).
 
 ## Native Sites release
 

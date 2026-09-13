@@ -6,7 +6,7 @@ Target: 18 September 2026. Public launch is an owner-approved release, not an au
 
 1. Open Ask and choose the constitutional scheduling example. Inspect the primary source, publication/retrieval dates and assessment.
 2. Enter a new claim about an election notice. Show that curated context cannot authenticate it and that missing evidence stays explicit.
-3. Open Verify, preview/redact an image, then use the manual text alternative. Do not advertise disabled live extraction or planned OCR as working.
+3. Open Verify, preview/redact an image and read its text on-device. Correct it, confirm the text review and check sources. Show that no pixels or model calls are involved; manual entry remains available.
 4. Browse a reference threat, then the county map. Point out hypothetical examples and illustrative records, not live incidents.
 5. Open Methodology: evidence rules, privacy, no-paid-AI policy and the roadmap from the lightweight Site to the full 3D application.
 

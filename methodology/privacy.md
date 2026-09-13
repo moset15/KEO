@@ -10,7 +10,7 @@ When native storage is available, KEO stores the claim and result privately agai
 
 ## Screenshots
 
-Selection, preview and manual redaction happen locally. Re-encoding removes embedded metadata, not identifying information visible in pixels. In no-paid-AI mode, transcribe the claim manually; local OCR is planned, not active.
+Selection, preview and manual redaction happen locally. Re-encoding removes embedded metadata, not identifying information visible in pixels. The default screenshot reader uses self-hosted Tesseract.js on this device, without a language model. Only text that you review and explicitly submit goes to KEO. The OCR worker is terminated after reading, cancellation, image changes or leaving the page. Model-data IndexedDB caching is disabled; browser HTTP caches may retain public reader assets, not uploaded images. Manual entry remains available.
 
 Optional remote extraction requires explicit consent. If enabled, the redacted image goes to the configured model. Native storage holds a private temporary copy, deleted after processing including handled failures. After interruption, cleanup removes originals older than one hour on later verification requests. This is opportunistic cleanup, not a guaranteed one-hour deadline. No image is automatically archived publicly. Future archival preservation needs separate consent and review.
 

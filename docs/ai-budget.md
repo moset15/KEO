@@ -6,14 +6,14 @@ Reviewed 13 September 2026. Quotas and account availability change; official lin
 
 Launch useful evidence navigation without paid inference. Curated retrieval, source cards, threats and county filtering do not need a language model. KEO explicitly disables paid calls by default. New claims stay unverified when evidence is insufficient; a zero-cost service must not invent research.
 
-Today, preview/redact screenshots locally and type or paste the claim into Investigate. Remote vision remains disabled. The next enhancement is on-device [Tesseract.js OCR](https://github.com/naptha/tesseract.js) with editable text review and evidence lookup. It is planned, not implemented. OCR reads text, not authenticity. Self-host assets to keep images on-device, load only on demand and retain manual entry on older phones.
+The screenshot flow uses self-hosted [Tesseract.js OCR](https://github.com/naptha/tesseract.js) on the device, followed by editable text review and curated evidence lookup. No LLM is used and screenshot pixels are not uploaded. It loads only on demand, with a manual alternative. OCR reads text, not authenticity. The initial English reader downloads roughly 4.5 MB when HTTP compression is available; hosting and mobile-data costs are separate. Remote vision remains disabled.
 
 ## Models we could connect later
 
 | Option                          | Useful role                                   | Constraint                                   | KEO status                                 |
 | ------------------------------- | --------------------------------------------- | -------------------------------------------- | ------------------------------------------ |
 | Curated retrieval + manual text | Known questions, source checks                | Small editorial catalogue, not live research | Implemented; no AI API calls               |
-| Browser OCR                     | Screenshot transcription                      | Downloads and device work                    | Planned                                    |
+| Browser OCR                     | Screenshot transcription                      | Downloads and device work                    | Implemented, on-device; no LLM             |
 | Gemini 2.5 Flash / Flash-Lite   | Public-text extraction and grounded summaries | Quotas and unpaid-service data terms         | Evaluated, not connected                   |
 | Workers AI                      | Bounded classification or summaries           | Compute allowance; retrieval separate        | Evaluated, not connected                   |
 | OpenAI model / Astra            | Complex synthesis and vision                  | Metered API/tools; approved budget required  | Adapter implemented; live untested and off |

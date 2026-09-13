@@ -15,7 +15,7 @@ Design starts at 360px with labelled controls, keyboard focus, readable text and
 - Reduced capability: no WebGL, JavaScript-disabled reading, reduced motion, interrupted requests and slow data.
 - Performance target: largest contentful paint below two seconds on a documented throttled mobile profile. Report the measurement and limitations, not an unmeasured success.
 
-Only Map loads geometry and graphics code; no external basemap is requested. Future OCR must load on demand with a data-use warning and manual alternative. Offline/PWA access is planned and needs visible stale-data dates.
+Only Map loads geometry and graphics code; no external basemap is requested. OCR loads only on demand with a data-use warning and manual alternative. Its English reader is not guaranteed for mixed-language or poor-quality screenshots. Offline/PWA access is planned and needs visible stale-data dates.
 
 ## Full product and 3D
 

@@ -21,7 +21,7 @@ Black, red, green and white reflect the Kenyan flag. They do not indicate party 
 - Ask and Investigate retrieve a small curated catalogue and show evidence, confidence, gaps and next checks. Two editorial records cover constitutional scheduling and attributed Anthropic research. These are not live news feeds.
 - Fourteen threat techniques use hypothetical examples. They are reference material, not confirmed Kenyan incidents.
 - The map has all 47 county boundaries, explicitly illustrative records, county filtering and a list fallback. There are no current incident feeds.
-- Screenshot preview, manual redaction and an optional remote extraction path are implemented. With paid AI disabled, type or paste the visible claim into Investigate. Browser-only OCR is planned, **not implemented yet**.
+- Screenshot preview, manual redaction and on-device text extraction work without an LLM. Correct the extracted text before source lookup; only reviewed text is submitted. Manual entry remains available.
 - Native storage can save results privately against a short-lived browser session, with deletion and expiry rules. Results and images are never automatically published.
 - The public methodology hub renders the same documentation files as GitHub. See [progress](PROGRESS.md) and [review](REVIEW.md) for verified checks and deployment gaps.
 
@@ -29,7 +29,7 @@ Black, red, green and white reflect the Kenyan flag. They do not indicate party 
 
 **Astra is optional. Paid inference is off unless `AI_ENABLED=true` is explicitly set.** Pages, filters and curated investigations make no model calls. This means zero AI API spend, not unlimited free hosting or mobile data.
 
-The next economical enhancement is on-device OCR with human correction, then curated retrieval. Optional free-tier models can assist with selected public text, but have quotas, privacy conditions and variable availability. None is established as universally better than Astra. Cloudflare AI Gateway routes and controls calls; it does not make upstream inference free. See [AI and cost policy](docs/ai-budget.md).
+On-device OCR with human correction feeds curated retrieval. Unmatched claims receive a source-checking checklist and relevant publisher links, clearly separate from evidence. Optional free-tier models can assist with selected public text, but have quotas, privacy conditions and variable availability. None is established as universally better than Astra. Cloudflare AI Gateway routes and controls calls; it does not make upstream inference free. See [AI and cost policy](docs/ai-budget.md).
 
 The optional adapter supports OpenAI Responses directly or through the user-selected Cloudflare AI Gateway. Gemini and Workers AI are candidates, **not connected providers**. ChatGPT subscription access is not an API credit balance.
 

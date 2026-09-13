@@ -1,4 +1,5 @@
 import { InvestigationSchema, type Investigation } from "../lib/schemas";
+import { researchGuide } from "../lib/research-guide";
 const form = document.querySelector<HTMLFormElement>("#keo-form");
 const query = document.querySelector<HTMLTextAreaElement>("#query");
 const target = document.querySelector<HTMLDivElement>("#result");
@@ -52,6 +53,27 @@ export function renderResult(result: Investigation) {
       const list = element("ul");
       items.forEach((item) => list.append(element("li", item)));
       panel.append(list);
+    }
+  }
+  if (result.mode === "curated" && result.status !== "supported") {
+    const guide = researchGuide(result.claim);
+    panel.append(element("h3", "Where to check next"));
+    panel.append(
+      element(
+        "p",
+        "Suggested research destinations, not evidence that these publishers have verified your claim.",
+        "small muted",
+      ),
+    );
+    const steps = element("ol");
+    guide.steps.forEach((step) => steps.append(element("li", step)));
+    panel.append(steps);
+    for (const source of guide.sources) {
+      const link = element("a", source.name + " ↗", "evidence-card");
+      link.href = source.url;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      panel.append(link);
     }
   }
   panel.append(element("h3", "Evidence & provenance"));
@@ -224,7 +246,7 @@ if (form && query && target && error && trace) {
         throw new Error(
           "The response ended before the investigation finished. Please try again.",
         );
-      if (mode === "verify")
+      if (mode === "verify" || form.dataset.localImage === "true")
         document.dispatchEvent(new Event("keo:image-complete"));
     } catch (e) {
       error.textContent =

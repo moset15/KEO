@@ -10,7 +10,7 @@ Help Kenyan residents, journalists and researchers trace election claims to publ
 1. Mobile-first Ask, Investigate, Verify, Map, Threats, Sources and methodology routes. Kenyan flag colours: black, red, green and white.
 2. Stable validated domain contracts, source provenance and explicit uncertainty.
 3. Curated investigations with no paid AI calls by default. Optional provider adapters must reject invalid evidence references and fail honestly.
-4. Local screenshot preview/redaction, a working manual-text alternative and consented remote extraction only when explicitly enabled. Browser OCR is a planned later slice.
+4. Local screenshot preview/redaction and on-device OCR, editable text with explicit review before submission, and manual entry fallback. No screenshot pixels leave the browser in the default workflow.
 5. Fourteen reference threat techniques and licensed 47-county geometry with illustrative records and list fallback.
 6. Native Sites hosting, data, temporary file storage and secrets. No external production infrastructure without a demonstrated requirement and written reason.
 7. Public documentation hub built from the repository Markdown, including methodology, privacy, architecture, zero-budget policy, device support, governance, setup and the full roadmap.
@@ -23,7 +23,7 @@ Help Kenyan residents, journalists and researchers trace election claims to publ
 | A1  | Primary routes and documentation work at 360px, with labelled controls, keyboard focus and no horizontal page overflow.                    |
 | A2  | Ask/Investigate show evidence, confidence, gaps and separate source/request dates; unknown claims are not false by default.                |
 | A3  | Input, provider failures, duplicate sources and invented references are handled; credentials alone cannot enable paid calls.               |
-| A4  | Image preview/redaction, size/type checks, consent and unavailable state work; manual text remains available without paid AI.              |
+| A4  | Image preview/redaction, local OCR, reviewed text-only submission and missing-asset/manual fallback work without an LLM.                   |
 | A5  | Map has 47 licensed county boundaries, filters, explicit illustrative records and a list fallback.                                         |
 | A6  | All 14 threat pages and source registry distinguish reference material from verified incidents.                                            |
 | A7  | Methodology renders the GitHub documentation, including future God’s Eye View, enduring light access and no-budget AI policy.              |

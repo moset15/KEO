@@ -9,7 +9,7 @@ Build working vertical slices and commit each one. The launch target does not ex
 5. Documentation and identity: a public hub generated from GitHub Markdown, full application roadmap, zero-budget policy and Kenyan flag colours.
 6. Release: tests, mobile checks, security review, native private preview and owner-approved public launch.
 
-The no-budget decision supersedes a mandatory paid Astra launch dependency. Manual screenshot transcription remains usable; browser OCR is a planned independent slice. Optional remote models require real-provider validation before activation.
+The no-budget decision supersedes a mandatory paid Astra launch dependency. Browser OCR is a separate no-LLM slice with text review, local asset hosting and a manual alternative. Optional remote models require real-provider validation before activation.
 
 ## Repository structure
 

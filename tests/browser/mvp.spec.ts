@@ -89,7 +89,7 @@ test("map offers all counties and an honest empty state", async ({ page }) => {
     "No curated records",
   );
 });
-test("screenshot preview, consent and unavailable path work", async ({
+test("screenshot preview, removal and manual text alternative work", async ({
   page,
 }) => {
   await page.goto("/verify/");
@@ -103,11 +103,12 @@ test("screenshot preview, consent and unavailable path work", async ({
     buffer: bytes,
   });
   await expect(page.locator("#image-editor")).toBeVisible();
-  await page.locator("#image-consent").check();
-  await page.getByRole("button", { name: "Extract & investigate" }).click();
-  await expect(page.locator("#form-error")).toContainText("not connected");
   await page.getByRole("button", { name: "Remove image" }).click();
   await expect(page.locator("#image-editor")).toBeHidden();
+  await page.locator("#query").fill("IEBC changed the election date");
+  await page.locator("#text-review").check();
+  await page.getByRole("button", { name: "Check sources" }).click();
+  await expect(page.locator("#result")).toContainText("Where to check next");
 });
 test("desktop layout fits", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 1000 });

@@ -18,7 +18,7 @@ KEO Light is the ChatGPT Site MVP and the enduring low-data version. The final p
 
 ## Phase 1 — launch the lightweight Site
 
-Keep Ask, Investigate, reference threats, source cards, methodology and the 47-county map useful without paid inference. New claims stay unverified when the catalogue cannot answer them. Review source coverage and privacy wording. Manual screenshot transcription is the current free route; browser OCR with editable text is a separate planned slice, never a claim of image authentication.
+Keep Ask, Investigate, reference threats, source cards, methodology and the 47-county map useful without paid inference. New claims stay unverified when the catalogue cannot answer them. Review source coverage and privacy wording. The free screenshot route uses on-device OCR with editable text and a manual alternative. This is transcription, never image authentication.
 
 Release gates: passing checks, 360px browser testing, keyboard access, measured performance, licence and security review, a working hosted preview and pushed code. Owner approval controls public release. Real-provider acceptance is required before enabling or advertising optional live AI, not for the no-paid-AI baseline.
 

@@ -13,6 +13,7 @@ function paint() {
   }
 }
 function clear() {
+  document.dispatchEvent(new Event("keo:image-changed"));
   revision++;
   original?.close();
   original = undefined;
@@ -27,6 +28,7 @@ function clear() {
   if (consent) consent.checked = false;
 }
 input?.addEventListener("change", async () => {
+  document.dispatchEvent(new Event("keo:image-changed"));
   const file = input.files?.[0];
   if (!file) return;
   const current = ++revision;
@@ -73,6 +75,7 @@ function point(event: PointerEvent) {
 }
 canvas?.addEventListener("pointerdown", (event) => {
   if (!canvas.dataset.ready) return;
+  document.dispatchEvent(new Event("keo:image-changed"));
   canvas.setPointerCapture(event.pointerId);
   start = point(event);
 });
@@ -92,7 +95,10 @@ canvas?.addEventListener("pointerup", (event) => {
 canvas?.addEventListener("pointercancel", () => {
   start = undefined;
 });
-document.querySelector("#reset-image")?.addEventListener("click", paint);
+document.querySelector("#reset-image")?.addEventListener("click", () => {
+  document.dispatchEvent(new Event("keo:image-changed"));
+  paint();
+});
 document.querySelector("#clear-image")?.addEventListener("click", clear);
 window.addEventListener("pagehide", clear);
 document.addEventListener("keo:image-complete", clear);

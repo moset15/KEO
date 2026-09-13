@@ -20,3 +20,7 @@ The evidence catalogue also includes a short attributed paraphrase of Anthropicâ
 Optional live search may yield links and model-generated summaries. Source pages are not mirrored; summaries may appear in temporarily saved private results under the privacy policy. They are not quotations unless expressly identified and do not automatically receive the code licence. Reputation and search citations do not remove the need to check the specific claim.
 
 Before adding a source, record its exact terms, allowed use, attribution and API constraints. Link instead of copying when permission is unclear. Keep corrections in Git and preserve stable IDs. Any future ACLED, media, observer or citizen-report integration needs its own access and publication review before ingestion.
+
+## On-device OCR
+
+Tesseract.js and its core (7.0.0) are Apache-2.0. English trained data is the pinned @tesseract.js-data/eng 1.0.0 best-int file, 2,952,873 bytes compressed. Its npm wrapper metadata says MIT, but the [trained-data source](https://github.com/naptha/tessdata) and [upstream data licence](https://github.com/tesseract-ocr/tessdata_best/blob/main/LICENSE) are Apache-2.0. Preserve upstream rights and notices; do not describe the data as simply MIT. Public reader assets include licence copies and a provenance notice. They are served from KEO, not a third-party CDN. English OCR does not guarantee accurate transcription of mixed-language or poor-quality screenshots.
