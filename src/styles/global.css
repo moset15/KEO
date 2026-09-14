@@ -462,7 +462,16 @@ textarea::placeholder {
   margin-top: 14px;
 }
 .footer {
-  border-top: 1px solid var(--line);
+  border-top: 4px solid transparent;
+  border-image: linear-gradient(
+      to right,
+      #111 0 32%,
+      #fff 32% 34%,
+      #b5121b 34% 66%,
+      #fff 66% 68%,
+      #006b3f 68% 100%
+    )
+    1;
   padding: 25px 0 110px;
   font-size: 11px;
   color: var(--muted);
@@ -482,7 +491,16 @@ textarea::placeholder {
   justify-content: space-around;
   z-index: 30;
   background: #fdfef9f7;
-  border-top: 1px solid var(--line);
+  border-top: 3px solid transparent;
+  border-image: linear-gradient(
+      to right,
+      #111 0 32%,
+      #fff 32% 34%,
+      #b5121b 34% 66%,
+      #fff 66% 68%,
+      #006b3f 68% 100%
+    )
+    1;
   padding: 8px 6px calc(8px + env(safe-area-inset-bottom));
 }
 .mobile-nav a {

@@ -28,10 +28,40 @@ Cloudflare AI Gateway’s free controls do not cover upstream inference costs. [
 
 Browser language models are not the universal baseline. [WebLLM](https://webllm.mlc.ai/docs/user/get_started.html) needs WebGPU, substantial downloads and capable hardware. Do not impose it on low-end phones to claim “free AI”.
 
+## Must we use Astra 6?
+
+**No. GPT-6 Astra is not required.** In KEO, paid inference is disabled by default (`AI_ENABLED=false`).
+
+1. **Subscription vs API access:** A ChatGPT Pro or Student Pro subscription provides access to ChatGPT in the web, desktop, and Work interface; it does **not** grant unlimited free API credits for background application inference in a hosted Site. Running Astra via programmatic API or tool calls incurs metered usage billed against an OpenAI platform account.
+2. **Cost risk:** Using a large frontier model for continuous public traffic on Product Hunt would quickly exhaust credits or generate unexpected costs if traffic spikes.
+3. **Overkill for core tasks:** Claim decomposition, structured keyword extraction, and evidence matching do not require a massive multimodal frontier model. Small specialized models and deterministic pipelines perform these tasks faster, cheaper, and more reliably.
+
+## Which models can do the function better and cheaper?
+
+If external inference is ever optionally connected with an approved budget, several alternative models provide superior cost-to-performance tradeoffs:
+
+| Provider & Model | Role & Strength | Free Tier & Pricing | Privacy & Tradeoffs |
+| ---------------- | --------------- | ------------------- | ------------------- |
+| **On-device Tesseract.js (Active)** | Screenshot transcription | 100% free; 0 API calls; runs in browser WASM | Maximum privacy; sensitive WhatsApp screenshots never leave the device. |
+| **Curated D1 / SQLite (Active)** | Evidence matching & threat tagging | Included in native Sites hosting; 0 AI cost | High precision; no hallucinations; deterministic sources. |
+| **Google Gemini 2.5 Flash / Flash-Lite** | Fast claim decomposition & live web grounding | Free tier on Google AI Studio (up to 15 RPM, 1M TPM, 500 daily Google Search grounding queries) | Best free search grounding option. Unpaid tier allows human review/training, so unredacted private messages must not be submitted. |
+| **Cloudflare Workers AI (Llama 3.1 8B)** | Structured extraction & classification | 10,000 free neurons daily (~hundreds of requests/day at 0 cost) | Runs directly at edge in the Workers runtime; no egress latency. Bounded by daily compute allowance. |
+| **Groq (Llama 3.1 8B / 70B)** | Sub-second extraction & Kiswahili reasoning | Free tier with high rate limits (RPM/TPM) | Extremely fast (~500 tokens/sec), but requires external API key management. |
+| **OpenAI Astra / GPT-4o** | Complex multimodal reasoning & synthesis | Metered pay-per-token API; no free tier | Highest capability, but requires an active funded account and hard billing caps. |
+
+## The zero-spend approach: How KEO spends KSh 0 on AI
+
+To maintain complete independence and zero operating bills, KEO implements a **four-pillar zero-spend architecture**:
+
+1. **On-Device Local OCR:** Instead of paying for cloud vision APIs, screenshots are processed entirely in the user's browser using Tesseract.js compiled to WebAssembly. The image pixels never leave the phone or laptop.
+2. **Native Deterministic Search:** KEO matches extracted claims against vetted Kenyan election datasets (IEBC regulations, Kenya Law statutes, gazette notices, and verified fact-checks from PesaCheck and Africa Check) stored locally in SQLite/D1.
+3. **Structured Research Assist:** When a claim is not yet in the curated catalogue, KEO generates direct deep-links to official public archives and fact-checkers alongside an investigative checklist, instead of paying an LLM to guess.
+4. **Honest Uncertainty:** If a claim cannot be verified against verified public records, KEO returns "Unverified" or "Insufficient Evidence" with clear gaps, rather than paying an AI model to hallucinate certainty.
+
 ## Quality and spending gates
 
 No model is “better than Astra” without a KEO-specific evaluation. Test citations, source independence, hallucinations, uncertainty, English/Kiswahili quality, adversarial prompts, latency and retrieval-plus-model cost. Choose the smallest model meeting the task’s requirements. Human review remains necessary for sensitive public attribution.
 
 Before remote AI: get budget/provider approval, test a real complete request, set provider spend controls, prohibit automatic paid fallback, bound requests/output, rate-limit users, stop at quota and document processing terms. Distinguish curated from live results. A ChatGPT subscription is not blanket API credit.
 
-With a budget of KSh 0, keep AI_ENABLED unset or false. Free tiers may support experiments; the product must still work when they are exhausted or withdrawn. Zero AI API billing does not mean unlimited free hosting, data or electricity.
+With a budget of KSh 0, keep `AI_ENABLED` unset or `false`. Free tiers may support experiments; the product must still work when they are exhausted or withdrawn. Zero AI API billing does not mean unlimited free hosting, data or electricity.
