@@ -40,9 +40,9 @@ Supported exact hosts cover IEBC, Kenya Law, Africa Check, PesaCheck, Anthropic,
 
 The native HTML reader uses the existing `entities` package as an explicit server dependency to decode named/numeric HTML characters correctly. This adds no external service. Run `node scripts/test-import-runtime.mjs` for the native parser/redirect/image checks with local publisher fixtures.
 
-**Astra is optional. Paid inference is off unless `AI_ENABLED=true` is explicitly set.** Pages, filters and curated investigations make no model calls. This means zero AI API spend, not unlimited free hosting or mobile data.
+**Two-tier AI strategy: Build-time vs Production.** Frontier models (**GPT-6 Astra** and **Gemini 3.8**) are leveraged during development for engineering, architecture, refactoring, and test synthesis under fixed workstation subscriptions, incurring KSh 0 in runtime traffic costs. For the public production runtime, KEO deploys a zero-to-low-cost fleet: on-device Tesseract.js OCR and native D1/SQLite matching as the zero-spend baseline, with highly cost-effective models (such as Gemini 2.5 Flash/Flash-Lite or Cloudflare Workers AI) evaluated as lightweight production candidates. Paid runtime inference is off by default (`AI_ENABLED=false`).
 
-On-device OCR with human correction feeds curated retrieval. Unmatched claims receive a source-checking checklist and relevant publisher links, clearly separate from evidence. Optional free-tier models can assist with selected public text, but have quotas, privacy conditions and variable availability. None is established as universally better than Astra. Cloudflare AI Gateway routes and controls calls; it does not make upstream inference free. See [AI and cost policy](docs/ai-budget.md).
+On-device OCR with human correction feeds curated retrieval. Unmatched claims receive a source-checking checklist and relevant publisher links, clearly separate from evidence. Cloudflare AI Gateway routes and controls calls; it does not make upstream inference free. See [AI and cost policy](docs/ai-budget.md).
 
 The optional adapter supports OpenAI Responses directly or through the user-selected Cloudflare AI Gateway. Gemini and Workers AI are candidates, **not connected providers**. ChatGPT subscription access is not an API credit balance.
 

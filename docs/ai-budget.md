@@ -2,6 +2,20 @@
 
 Reviewed 13 September 2026. Quotas and account availability change; official links below are the reference. No provider entitlement has been tested for this project.
 
+## Two-tier model strategy: Build-time vs Production
+
+KEO maintains a strict operational distinction between the models used to engineer the software and the models used to serve public requests:
+
+1. **Build-Time Fleet (Frontier Engineering):**
+   - **Models:** **GPT-6 Astra** (via Codex & ChatGPT Work) and **Gemini 3.8** (via Antigravity / Google Developer tooling).
+   - **Role:** System architecture, codebase refactoring, security audits, test synthesis, prompt validation, and dataset curation.
+   - **Cost profile:** Fixed developer workstation and subscription access. It incurs **KSh 0 in runtime API traffic costs**, allowing maximum model intelligence during engineering without financial exposure.
+
+2. **Production Runtime Fleet (Cost-Effective & Zero-Budget):**
+   - **Models:** **On-device Tesseract.js (WASM)**, **Native D1/SQLite**, with **Gemini 2.5 Flash / Flash-Lite** or **Cloudflare Workers AI (Llama 3.1 8B)** as production candidate models.
+   - **Role:** Anonymous citizen queries, claim decomposition, on-device OCR, and deterministic source matching.
+   - **Cost profile:** Zero or near-zero per-request cost. Ensures KEO remains permanently resilient against traffic spikes (such as Product Hunt launches or election news cycles) without credit exhaustion.
+
 ## Recommended approach
 
 Launch useful evidence navigation without paid inference. Curated retrieval, source cards, threats and county filtering do not need a language model. KEO explicitly disables paid calls by default. New claims stay unverified when evidence is insufficient; a zero-cost service must not invent research.
