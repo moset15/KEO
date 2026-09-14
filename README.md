@@ -2,6 +2,8 @@
 
 Turn election rumours into evidence. KEO is an independent, non-partisan, open-source evidence navigator, not an election authority.
 
+[Open the private ChatGPT Site preview](https://keo-observatory.nya-onmoseti.chatgpt.site). Public access is not enabled yet.
+
 ## One project, two experiences
 
 **The Product Hunt MVP is a lightweight ChatGPT Site.** It prioritises phones, slow connections and accessible public evidence. Sites is the intended host for pages, the small API, native data storage, temporary file storage and secrets. No Supabase, Vercel or separately deployed Cloudflare infrastructure is required. The local Worker simulator is a development tool, not a change of hosting plan.

@@ -39,7 +39,7 @@ The importer keeps retrieved material transient; only the separately reviewed cl
 
 ## Non-blocking issues and public-release gates
 
-- A successful native hosted deployment must be verified separately from this source review. No public release is authorised by this verdict.
+- Native owner-only deployment of a491699 succeeded at [KEO’s private preview](https://keo-observatory.nya-onmoseti.chatgpt.site). The follow-up hostname correction is limited to canonical/sitemap/robots metadata. No public release is authorised by this verdict.
 - Actual Android/iOS, assistive-technology and production-network checks remain launch gates. Emulation does not prove universal device support.
 - Live vision/search is disabled and real-provider access is untested. English-only OCR needs human correction and cannot authenticate images.
 - Link support is deliberately limited to listed hosts and formats; publishers can block retrieval. No arbitrary proxy, full-document/PDF parsing or independent truth verification is claimed.

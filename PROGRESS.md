@@ -33,7 +33,7 @@ PostGIS, ingestion, citizen reports and the optional 3D full application remain 
 
 ## Release status
 
-The registered native Site is owner-only. At this source review, hosting publication is the next delivery step, not a verified public launch. Record the exact deployment outcome separately. Real Android/iOS testing, production-network checks and owner public-release approval remain gates. The approval service briefly interrupted validation with a usage-limit error; work resumed after it cleared.
+The native owner-only Site successfully published the screenshot/URL slice (a491699) at [KEO’s private preview](https://keo-observatory.nya-onmoseti.chatgpt.site). The hosting service assigned a different hostname from registration; the follow-up fix aligns canonical links, sitemap and robots with that verified address. GitHub source was pushed successfully. This is not a public launch: real Android/iOS testing, production-network checks and owner public-release approval remain gates. The approval service briefly interrupted validation with a usage-limit error; work resumed after it cleared.
 
 ## Next development priorities
 

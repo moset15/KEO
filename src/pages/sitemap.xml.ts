@@ -20,7 +20,7 @@ export function GET() {
       routes
         .map(
           (p) =>
-            "<url><loc>https://keo-observatory.mossy-wren-4073.chatgpt.site/" +
+            "<url><loc>https://keo-observatory.nya-onmoseti.chatgpt.site/" +
             p +
             (p ? "/" : "") +
             "</loc></url>",
