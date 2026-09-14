@@ -7,6 +7,8 @@ import {
 import { investigateClaim } from "../src/lib/investigate";
 import { extractImageClaim, validateImage } from "../src/lib/images";
 import { civicRedirect } from "../src/lib/guardrails";
+import { importPublicURL, ImportError } from "../src/lib/url-import";
+import { publicImportURL } from "../src/lib/import-policy";
 import {
   ensureCatalogue,
   nativeRateLimit,
@@ -73,6 +75,75 @@ export async function handle(request: Request, env: Env): Promise<Response> {
       live,
       provider: env.OPENAI_API_KEY ? "OpenAI" : "Cloudflare AI Gateway",
     });
+  }
+  if (url.pathname === "/api/import") {
+    if (request.method !== "POST") return json({ error: "Use POST" }, 405);
+    if (request.headers.get("origin") !== url.origin)
+      return json({ error: "Same-origin requests only" }, 403);
+    if (!request.headers.get("content-type")?.includes("application/json"))
+      return json({ error: "JSON required" }, 415);
+    let target: string;
+    try {
+      const input: unknown = JSON.parse(await readBounded(request, 4096));
+      if (
+        !input ||
+        typeof input !== "object" ||
+        !("url" in input) ||
+        typeof input.url !== "string" ||
+        !("consent" in input) ||
+        input.consent !== true
+      )
+        throw new Error("Confirm that the link is public before importing.");
+      target = publicImportURL(input.url).href;
+    } catch {
+      return json(
+        {
+          error:
+            "Use a supported public HTTPS link and confirm permission to retrieve it. Otherwise paste the claim or upload the image.",
+        },
+        400,
+      );
+    }
+    if (!env.DB && !env.RATE_LIMITER)
+      return json(
+        {
+          error:
+            "Link import is unavailable. Paste the claim or upload the image instead.",
+        },
+        503,
+      );
+    try {
+      const caller = request.headers.get("cf-connecting-ip") ?? "anonymous";
+      const allowed = env.DB
+        ? await nativeRateLimit(env.DB, caller)
+        : (await env.RATE_LIMITER!.limit({ key: caller })).success;
+      if (!allowed)
+        return json(
+          { error: "Request limit reached. Wait a minute or paste the claim." },
+          429,
+        );
+    } catch {
+      return json(
+        {
+          error:
+            "Link import is temporarily unavailable. Paste or upload instead.",
+        },
+        503,
+      );
+    }
+    try {
+      return json(await importPublicURL(target));
+    } catch (error) {
+      return json(
+        {
+          error:
+            error instanceof ImportError
+              ? error.message
+              : "This link could not be read. Paste or upload instead.",
+        },
+        error instanceof ImportError ? error.status : 502,
+      );
+    }
   }
   if (url.pathname.startsWith("/api/investigations/")) {
     if (request.method !== "DELETE") return json({ error: "Use DELETE" }, 405);

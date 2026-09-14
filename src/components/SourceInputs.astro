@@ -1,0 +1,129 @@
+---
+import { IMPORT_HOSTS } from "../lib/import-policy";
+interface Props {
+  expanded?: boolean;
+}
+const { expanded = false } = Astro.props;
+---
+
+<div class="source-inputs">
+  <details open={expanded} id="screenshot-input">
+    <summary>Add screenshot or photograph</summary>
+    <label class="upload" for="image-file">
+      <strong>Choose an image from this device</strong><br />
+      <span class="small muted"
+        >JPEG, PNG or WebP · up to 8 MB · first frame only</span
+      >
+      <input
+        id="image-file"
+        type="file"
+        accept="image/jpeg,image/png,image/webp"
+      />
+    </label>
+    <div id="image-editor" hidden>
+      <p class="small">
+        Drag across private details to cover them before reading. Remove
+        identifiers from the extracted text too.
+      </p>
+      <canvas
+        id="image-canvas"
+        class="upload-preview"
+        aria-label="Image redaction canvas"></canvas>
+      <div class="actions">
+        <button class="btn" id="reset-image" type="button"
+          >Undo all redactions</button
+        >
+        <button class="btn" id="clear-image" type="button">Remove image</button>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="btn" id="read-image" type="button"
+        >Read text on this device</button
+      >
+      <button class="btn" id="cancel-ocr" type="button" hidden
+        >Cancel reading</button
+      >
+    </div>
+    <p class="small muted">
+      English text reader · several MB downloaded only when requested; older
+      phones may be slow. No image upload or paid AI. You can always type
+      instead.
+    </p>
+    <p id="ocr-status" class="small" role="status">
+      Choose an image, or type the claim below.
+    </p>
+  </details>
+  <details id="link-input">
+    <summary>Add article or image URL</summary>
+    <label for="source-url"
+      >Public article, official notice or direct image link</label
+    >
+    <input
+      id="source-url"
+      type="text"
+      inputmode="url"
+      maxlength="2048"
+      placeholder="https://…"
+      aria-describedby="url-help"
+    />
+    <p id="url-help" class="small muted">
+      HTML/text pages and JPEG, PNG or WebP images (up to 3 MB). PDFs, private
+      links and sign-in pages need a pasted claim or screenshot.
+    </p>
+    <label class="consent">
+      <input id="url-consent" type="checkbox" />
+      <span
+        >This is a public link. KEO may retrieve it from the publisher. It
+        contains no private access token or personal information.</span
+      >
+    </label>
+    <div class="actions">
+      <button class="btn" id="read-url" type="button">Read link</button>
+      <button class="btn" id="cancel-url" type="button" hidden
+        >Cancel import</button
+      >
+    </div>
+    <details class="small">
+      <summary>Supported sources</summary>
+      <p>
+        Only these exact hosts are retrieved. Other sources: open the page
+        yourself, then paste its claim or upload a screenshot.
+      </p>
+      <p>{IMPORT_HOSTS.join(", ")}</p>
+    </details>
+    <p id="url-status" class="small" role="status"></p>
+  </details>
+  <div id="import-note" class="notice" hidden></div>
+</div>
+<script>
+  import "../scripts/image-editor";
+  import "../scripts/local-ocr";
+  import "../scripts/source-inputs";
+</script>
+
+<style>
+  .source-inputs {
+    margin: 1rem 0;
+  }
+  .source-inputs > details {
+    border: 1px solid var(--line, #cbd5d0);
+    border-radius: 0.5rem;
+    padding: 0 0.8rem;
+    margin: 0.65rem 0;
+  }
+  summary {
+    cursor: pointer;
+    padding: 0.7rem 0;
+    min-height: 44px;
+    font-weight: 600;
+  }
+  #source-url {
+    width: 100%;
+    min-height: 44px;
+    box-sizing: border-box;
+  }
+  #import-note,
+  details p {
+    overflow-wrap: anywhere;
+  }
+</style>

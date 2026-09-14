@@ -1,4 +1,6 @@
 ---
+import SourceInputs from "./SourceInputs.astro";
+import ReviewConsent from "./ReviewConsent.astro";
 interface Props {
   mode?: "ask" | "investigate" | "verify";
 }
@@ -6,6 +8,7 @@ const { mode = "ask" } = Astro.props;
 ---
 
 <form id="keo-form" data-mode={mode}>
+  <SourceInputs />
   <div class="ask-box">
     <label for="query"
       >{mode === "ask" ? "ASK KEO" : "THE CLAIM TO CHECK"}</label
@@ -17,8 +20,8 @@ const { mode = "ask" } = Astro.props;
       required
       placeholder={mode === "ask"
         ? "What would you like to understand about Kenya’s election?"
-        : "Paste a claim, public URL or the visible text from a screenshot…"}
-    ></textarea><div class="composer-foot">
+        : "Type the specific claim, or use the screenshot and URL inputs above…"}
+    ></textarea><ReviewConsent /><div class="composer-foot">
       <span>Start with a question. Follow the evidence.</span><button
         class="btn primary"
         type="submit"

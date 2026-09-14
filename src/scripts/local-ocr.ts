@@ -38,6 +38,7 @@ document.addEventListener("keo:image-changed", () => {
   if (status)
     status.textContent = "Read the current image, or type its claim below.";
 });
+document.addEventListener("keo:ocr-cancel", stop);
 window.addEventListener("pagehide", stop);
 button?.addEventListener("click", async () => {
   if (!canvas?.dataset.ready || !query || !status) {

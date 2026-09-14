@@ -170,13 +170,25 @@ if (form && query && target && error && trace) {
   if (initial) query.value = initial.slice(0, 2000);
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
+    if (!form.reportValidity()) return;
+    if (form.dataset.importing === "true") {
+      error.textContent =
+        "Wait for the link import, or cancel it before checking sources.";
+      error.hidden = false;
+      return;
+    }
     error.hidden = true;
     trace.replaceChildren();
     target.replaceChildren();
-    const button = form.querySelector<HTMLButtonElement>(
-      "button[type=submit]",
-    )!;
-    button.disabled = true;
+    const controls = [
+      ...form.querySelectorAll<
+        HTMLInputElement | HTMLTextAreaElement | HTMLButtonElement
+      >("input, textarea, button"),
+    ];
+    const previousDisabled = controls.map((control) => control.disabled);
+    controls.forEach((control) => {
+      control.disabled = true;
+    });
     form.setAttribute("aria-busy", "true");
     try {
       const mode = form.dataset.mode ?? "ask";
@@ -253,7 +265,9 @@ if (form && query && target && error && trace) {
         e instanceof Error ? e.message : "Unable to complete the request.";
       error.hidden = false;
     } finally {
-      button.disabled = false;
+      controls.forEach((control, index) => {
+        control.disabled = previousDisabled[index];
+      });
       form.removeAttribute("aria-busy");
     }
   });

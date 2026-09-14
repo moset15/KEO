@@ -1,3 +1,4 @@
+import { checkRasterSize } from "../lib/raster-size";
 const input = document.querySelector<HTMLInputElement>("#image-file");
 const canvas = document.querySelector<HTMLCanvasElement>("#image-canvas");
 const editor = document.querySelector<HTMLElement>("#image-editor");
@@ -24,13 +25,13 @@ function clear() {
     delete canvas.dataset.ready;
   }
   if (editor) editor.hidden = true;
+  const form = document.querySelector<HTMLFormElement>("#keo-form");
+  if (form) delete form.dataset.localImage;
   const consent = document.querySelector<HTMLInputElement>("#image-consent");
   if (consent) consent.checked = false;
 }
-input?.addEventListener("change", async () => {
-  document.dispatchEvent(new Event("keo:image-changed"));
-  const file = input.files?.[0];
-  if (!file) return;
+export async function loadImage(file: Blob, isCurrent = () => true) {
+  document.dispatchEvent(new Event("keo:ocr-cancel"));
   const current = ++revision;
   try {
     if (
@@ -38,8 +39,10 @@ input?.addEventListener("change", async () => {
       file.size > 8 * 1024 * 1024
     )
       throw new Error("Choose a JPEG, PNG or WebP no larger than 8 MB.");
+    checkRasterSize(new Uint8Array(await file.arrayBuffer()), file.type);
+    if (current !== revision || !isCurrent()) return;
     const bitmap = await createImageBitmap(file);
-    if (current !== revision) {
+    if (current !== revision || !isCurrent()) {
       bitmap.close();
       return;
     }
@@ -56,14 +59,28 @@ input?.addEventListener("change", async () => {
     canvas!.height = Math.round(bitmap.height * scale);
     paint();
     canvas!.dataset.ready = "true";
+    document.dispatchEvent(new Event("keo:image-changed"));
+    const form = document.querySelector<HTMLFormElement>("#keo-form");
+    if (form) form.dataset.localImage = "true";
+    const details =
+      document.querySelector<HTMLDetailsElement>("#screenshot-input");
+    if (details) details.open = true;
+    document.dispatchEvent(new Event("keo:review-required"));
     editor!.hidden = false;
     error!.hidden = true;
   } catch (e) {
-    clear();
+    if (current !== revision || !isCurrent()) return;
     error!.textContent =
       e instanceof Error ? e.message : "Unable to read image.";
     error!.hidden = false;
+    throw new Error(
+      "This image could not be opened. Upload a readable screenshot instead.",
+    );
   }
+}
+input?.addEventListener("change", () => {
+  const file = input.files?.[0];
+  if (file) void loadImage(file).catch(() => {});
 });
 let start: { x: number; y: number } | undefined;
 function point(event: PointerEvent) {

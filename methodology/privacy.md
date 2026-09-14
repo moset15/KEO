@@ -18,6 +18,12 @@ Clearing an image or leaving the page removes application preview state. It cann
 
 ## Operational records
 
+### URL imports
+
+Selecting **Read link** sends the public URL to KEO’s server and then to the named publisher. Do not use private, signed, password-bearing or tokenised links. Only exact supported HTTPS hosts are allowed; each redirect is checked again. KEO sends a fresh request with no user cookies or authorisation, does not follow embedded links or load page images, and returns plain text or bounded raster bytes. Publisher policies and infrastructure logs still apply. This is not a private browsing proxy.
+
+HTML/text responses are limited to 1 MB, remote images to 3 MB, redirects to three and retrieval to 12 seconds. The editor displays at most 2,000 text characters for correction. Images must have supported headers and bounded dimensions, then pass the browser decoder. Imported bytes/text remain transient in server memory and the current page, not D1/R2 or the public catalogue. Only the reviewed claim submitted separately is stored under the result policy above; the original URL is not saved with that result. Retrieval times are not publication dates or endorsements.
+
 Optional Responses requests set `store: false`; Gateway calls disable content logs and caching. KEO does not log request bodies. These controls do not guarantee zero provider retention, deletion from backups or absence of operational records. Review [OpenAI API data controls](https://developers.openai.com/api/docs/guides/your-data) and actual provider settings before activation.
 
 Rate limiting uses a time-bounded hash derived from the connection identifier; local bindings may process the IP transiently. It is not added to evidence or a voter profile. Maps serve local geometry without external tiles/geocoding. External source links contact publishers under their policies.

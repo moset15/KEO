@@ -17,6 +17,7 @@
     "@tesseract.js-data/eng": "^1.0.0",
     "astro": "^7.3.2",
     "drizzle-orm": "^0.45.2",
+    "entities": "4.5.0",
     "maplibre-gl": "^6.9.0",
     "tesseract.js": "^7.0.0",
     "zod": "^4.3.6"

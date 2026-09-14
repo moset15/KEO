@@ -1,0 +1,15 @@
+---
+interface Props {
+  required?: boolean;
+}
+const { required = false } = Astro.props;
+---
+
+<label id="text-review-label" class="consent" hidden={!required}>
+  <input id="text-review" type="checkbox" required={required} />
+  <span
+    >I have checked the text and removed unnecessary private details. Only the
+    reviewed claim text is sent for source lookup.{" "}
+    <a href="/methodology/privacy/">Privacy & retention</a>.</span
+  >
+</label>

@@ -1,5 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import SourceInputs from "../components/SourceInputs.astro";
+import ReviewConsent from "../components/ReviewConsent.astro";
 ---
 
 <Layout
@@ -16,45 +18,7 @@ import Layout from "../layouts/Layout.astro";
       </p>
     </header>
     <form id="keo-form" data-mode="investigate" data-local-image="true">
-      <label class="upload" for="image-file"
-        ><strong>Choose a screenshot or photograph</strong><br /><span
-          class="small muted">JPEG, PNG or WebP · up to 8 MB</span
-        ><input
-          id="image-file"
-          type="file"
-          accept="image/jpeg,image/png,image/webp"
-        /></label
-      >
-      <div id="image-editor" hidden>
-        <p class="small">
-          Drag across private details to cover them before reading. Also remove
-          any identifiers from the extracted text.
-        </p>
-        <canvas
-          id="image-canvas"
-          class="upload-preview"
-          aria-label="Image redaction canvas"></canvas>
-        <div class="actions">
-          <button class="btn" id="reset-image" type="button"
-            >Undo all redactions</button
-          ><button class="btn" id="clear-image" type="button"
-            >Remove image</button>
-        </div>
-      </div>
-      <div class="actions">
-        <button class="btn" id="read-image" type="button"
-          >Read text on this device</button
-        ><button class="btn" id="cancel-ocr" type="button" hidden
-          >Cancel reading</button>
-      </div>
-      <p class="small muted">
-        English text reader · downloaded only when requested. First use needs
-        several MB of data and may be slow on older phones. You can always type
-        or paste instead. No LLM is used.
-      </p>
-      <p id="ocr-status" class="small" role="status" aria-live="polite">
-        Choose an image, or type the claim below.
-      </p>
+      <SourceInputs expanded />
       <label for="query">Review the text or type the claim</label><textarea
         id="query"
         required
@@ -62,18 +26,12 @@ import Layout from "../layouts/Layout.astro";
         maxlength="2000"
         placeholder="Keep the specific claim. Correct errors and remove private details."
       ></textarea>
-      <label class="consent"
-        ><input id="text-review" type="checkbox" required /><span
-          >I have checked this text and removed unnecessary private details.
-          Only text will be sent to KEO for source lookup. <a
-            href="/methodology/privacy/">Privacy & retention</a
-          >.</span
-        ></label
-      >
+      <ReviewConsent required />
       <div class="actions">
         <button class="btn primary" type="submit">Check sources →</button><a
           class="btn"
-          href="/sources/">Browse sources directly</a>
+          href="/sources/">Browse sources directly</a
+        >
       </div>
       <p id="service-state" class="small muted">
         Curated lookup · no paid AI.
@@ -98,8 +56,6 @@ import Layout from "../layouts/Layout.astro";
     >
   </div>
   <script>
-    import "../scripts/image-editor";
-    import "../scripts/local-ocr";
     import "../scripts/investigation";
   </script>
 </Layout>

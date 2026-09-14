@@ -21,11 +21,22 @@ Black, red, green and white reflect the Kenyan flag. They do not indicate party 
 - Ask and Investigate retrieve a small curated catalogue and show evidence, confidence, gaps and next checks. Two editorial records cover constitutional scheduling and attributed Anthropic research. These are not live news feeds.
 - Fourteen threat techniques use hypothetical examples. They are reference material, not confirmed Kenyan incidents.
 - The map has all 47 county boundaries, explicitly illustrative records, county filtering and a list fallback. There are no current incident feeds.
-- Screenshot preview, manual redaction and on-device text extraction work without an LLM. Correct the extracted text before source lookup; only reviewed text is submitted. Manual entry remains available.
+- Ask, Investigate and Verify include visible screenshot controls: preview, manual redaction and on-device text extraction without an LLM. Correct the extracted text before source lookup; only reviewed text is submitted. Manual entry remains available.
+- Article/official-notice and direct image URLs can be imported from the exact supported public hosts listed beside the input. Pages yield editable plain text; images use the same local reader. Imported material is unverified, never automatically added to the evidence catalogue.
 - Native storage can save results privately against a short-lived browser session, with deletion and expiry rules. Results and images are never automatically published.
 - The public methodology hub renders the same documentation files as GitHub. See [progress](PROGRESS.md) and [review](REVIEW.md) for verified checks and deployment gaps.
 
 ## Zero-budget AI policy
+
+### Screenshot and URL workflow
+
+Open **Add screenshot or photograph** in Ask/Investigate (already expanded on Verify), choose JPEG/PNG/WebP, select **Read text on this device**, correct the claim and tick the review box. Local files stay in the browser. Animated images use the first frame. The first English OCR download needs several MB; typing is always available.
+
+For a link, open **Add article or image URL**, enter a public HTTPS URL, confirm permission and select **Read link**. KEO’s server retrieves the link with no user cookies or credentials, within time/byte limits. The browser never executes imported HTML. Text is limited to the first 2,000 characters for human editing; a linked original and retrieval time are shown. Direct JPEG/PNG/WebP links (up to 3 MB) become a local preview for OCR. This is retrieval, not authentication or fact-checking.
+
+Supported exact hosts cover IEBC, Kenya Law, Africa Check, PesaCheck, Anthropic, Meta’s newsroom, X’s public image CDN and Wikimedia uploads; the UI and `src/lib/import-policy.ts` contain the complete list. There is no arbitrary proxy, link crawling or login access. Redirects are rechecked against the same allowlist. PDFs, unsupported/blocked sites and JavaScript-only pages require opening the original yourself, then pasting the claim or uploading a screenshot. The original URL is not saved with the investigation; only the reviewed claim is submitted for lookup.
+
+The native HTML reader uses the existing `entities` package as an explicit server dependency to decode named/numeric HTML characters correctly. This adds no external service. Run `node scripts/test-import-runtime.mjs` for the native parser/redirect/image checks with local publisher fixtures.
 
 **Astra is optional. Paid inference is off unless `AI_ENABLED=true` is explicitly set.** Pages, filters and curated investigations make no model calls. This means zero AI API spend, not unlimited free hosting or mobile data.
 

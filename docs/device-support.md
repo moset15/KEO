@@ -6,6 +6,8 @@ KEO targets the widest practical access, not every device ever made. The lightwe
 
 Static sources, methodology and threat pages are readable without JavaScript. Investigations and client-side filtering require it. The interactive 2D map needs WebGL, but its records/list remain available when graphics fail. Manually transcribe screenshots if decoding or remote extraction is unavailable.
 
+Ask and Investigate expose screenshot and article/image URL inputs inside the form; Verify opens the screenshot picker by default. URL retrieval requires a connection and supports only listed public hosts. PDFs and blocked/private pages need manual copy or screenshot upload. Imported text and English OCR both require human correction; neither proves authenticity. Local and imported raster images are limited to 36 megapixels and 16,000 pixels per side; only the first animation frame is used.
+
 Design starts at 360px with labelled controls, keyboard focus, readable text and written statuses. Kenyan flag colours communicate identity, not party alignment. Test 200% enlargement, keyboard access and horizontal overflow.
 
 ## Test matrix and targets
